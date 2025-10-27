@@ -1,0 +1,1072 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CODE 1D DFT &mdash; BSc-Study-Notes  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="CODE 1D DPFT" href="CODE-1D-DPFT.html" />
+    <link rel="prev" title="Density Matrix" href="Density-Matrix.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            BSc-Study-Notes
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">BioPhysics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Biomolecular-Physics/index.html">Biomolecular Physics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Biomolecular-Physics/Master-Equation.html">Master Equation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Biomolecular-Physics/Master-Equation.html#derivation">Derivation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Biomolecular-Physics/Hartree-Fock-Method.html">Hartree Fock Method</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Biomolecular-Physics/Hartree-Fock-Method.html#what-is-the-problem">What is the problem ?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Biomolecular-Physics/Hartree-Fock-Method.html#derivation">Derivation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Biomolecular-Physics/Density-Functional-Theory.html">Density Functional Theory</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Biomolecular-Physics/Density-Functional-Theory.html#dependency">Dependency</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Biomolecular-Physics/Density-Functional-Theory.html#what-is-the-problem">What is the problem ?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Biomolecular-Physics/Density-Functional-Theory.html#derivation">Derivation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Biomolecular-Physics/Free-Energy-Calculation.html">Free Energy Calculation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Biomolecular-Physics/Free-Energy-Calculation.html#derivation">Derivation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Biomolecular-Physics/Non-equilibrium-Thermodynamics.html">Non-equilibrium Thermodynamics</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Biomolecular-Physics/Non-equilibrium-Thermodynamics.html#dependency">Dependency</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Biomolecular-Physics/Non-equilibrium-Thermodynamics.html#what-is-the-problem">What is the problem ?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Biomolecular-Physics/Non-equilibrium-Thermodynamics.html#derivation">Derivation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Biomolecular-Physics/Non-equilibrium-Thermodynamics.html#what-is-the-significance">What is the significance ?</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Biomolecular-Physics/Kramers-Reaction-Rate-Theory.html">Kramers Reaction Rate Theory</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Biomolecular-Physics/Kramers-Reaction-Rate-Theory.html#dependency">Dependency</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Biomolecular-Physics/Kramers-Reaction-Rate-Theory.html#what-is-the-problem">What is the problem ?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Biomolecular-Physics/Kramers-Reaction-Rate-Theory.html#derivation">Derivation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Electronics and Coding</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Experimental-Physics-SoC-FPGA-Design/index.html">Experimental Physics: SoC FPGA Design</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Experimental-Physics-SoC-FPGA-Design/Design-Plan.html">Design Plan</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Experimental-Physics-SoC-FPGA-Design/Design-Plan.html#note">Note</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Experimental-Physics-SoC-FPGA-Design/Design-Plan.html#what-are-we-gonna-do">What are we gonna do?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Experimental-Physics-SoC-FPGA-Design/Design-Plan.html#front-end">Front End</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Experimental-Physics-SoC-FPGA-Design/Design-Plan.html#back-end">Back End</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Experimental-Physics-SoC-FPGA-Design/Design-Plan.html#quartus-project">Quartus Project</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Experimental-Physics-SoC-FPGA-Design/Design-Plan.html#tutorials">Tutorials</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Experimental-Physics-SoC-FPGA-Design/Processor-FPGA-Communication-FPGA-Part.html">Processor-FPGA Communication: FPGA Part</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Experimental-Physics-SoC-FPGA-Design/Processor-FPGA-Communication-FPGA-Part.html#corresponding-project-folder">Corresponding Project Folder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Experimental-Physics-SoC-FPGA-Design/Processor-FPGA-Communication-FPGA-Part.html#dependency">Dependency</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Experimental-Physics-SoC-FPGA-Design/Processor-FPGA-Communication-FPGA-Part.html#what-is-the-problem">What is the problem ?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Experimental-Physics-SoC-FPGA-Design/Processor-FPGA-Communication-FPGA-Part.html#fpga-part">FPGA Part</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Experimental-Physics-SoC-FPGA-Design/Processor-FPGA-Communication-Processor-Part.html">Processor-FPGA Communication: Processor Part</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Experimental-Physics-SoC-FPGA-Design/Processor-FPGA-Communication-Processor-Part.html#corresponding-project-folder">Corresponding Project Folder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Experimental-Physics-SoC-FPGA-Design/Processor-FPGA-Communication-Processor-Part.html#dependency">Dependency</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Experimental-Physics-SoC-FPGA-Design/Processor-FPGA-Communication-Processor-Part.html#processor-part">Processor Part</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Experimental-Physics-SoC-FPGA-Design/FAILED-Processor-FPGA-Communication-Using-FIFO-FPGA-Part.html">FAILED Processor-FPGA Communication: Using FIFO FPGA Part</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Experimental-Physics-SoC-FPGA-Design/FAILED-Processor-FPGA-Communication-Using-FIFO-FPGA-Part.html#warning">Warning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Experimental-Physics-SoC-FPGA-Design/FAILED-Processor-FPGA-Communication-Using-FIFO-FPGA-Part.html#credit">Credit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Experimental-Physics-SoC-FPGA-Design/FAILED-Processor-FPGA-Communication-Using-FIFO-FPGA-Part.html#dependency">Dependency</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Experimental-Physics-SoC-FPGA-Design/FAILED-Processor-FPGA-Communication-Using-FIFO-FPGA-Part.html#this-part-uses-parameters-in-cornell-ece5760">This part uses parameters in Cornell ECE5760</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Experimental-Physics-SoC-FPGA-Design/FAILED-Processor-FPGA-Communication-Using-FIFO-FPGA-Part.html#this-part-uses-my-parameters-and-de10-nano-soc-ghrd">This part uses My parameters and DE10_NANO_SoC_GHRD</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Experimental-Physics-SoC-FPGA-Design/FAILED-Processor-FPGA-Communication-Using-FIFO-Processor-Part.html">FAILED Processor-FPGA Communication: Using FIFO Processor Part</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Experimental-Physics-SoC-FPGA-Design/FAILED-Processor-FPGA-Communication-Using-FIFO-Processor-Part.html#warning">Warning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Experimental-Physics-SoC-FPGA-Design/FAILED-Processor-FPGA-Communication-Using-FIFO-Processor-Part.html#credit">Credit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Experimental-Physics-SoC-FPGA-Design/FAILED-Processor-FPGA-Communication-Using-FIFO-Processor-Part.html#platform-designer-settings-from-last-session">Platform Designer Settings From Last Session</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Experimental-Physics-SoC-FPGA-Design/FAILED-Processor-FPGA-Communication-Using-FIFO-Processor-Part.html#processor-code-that-uses-above-address-map">Processor Code That Uses Above Address Map</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Experimental-Physics-SoC-FPGA-Design/Processor-FPGA-Communication-Using-FIFO-FPGA-Part.html">Processor-FPGA Communication: Using FIFO FPGA Part</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Experimental-Physics-SoC-FPGA-Design/Processor-FPGA-Communication-Using-FIFO-FPGA-Part.html#what-is-the-idea">What is the idea?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Experimental-Physics-SoC-FPGA-Design/Processor-FPGA-Communication-Using-FIFO-FPGA-Part.html#what-are-we-gonna-do">What are we gonna do?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Experimental-Physics-SoC-FPGA-Design/Processor-FPGA-Communication-Using-FIFO-FPGA-Part.html#how-fifo-works">How FIFO works</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Experimental-Physics-SoC-FPGA-Design/Processor-FPGA-Communication-Using-FIFO-FPGA-Part.html#use-the-fifo-library-in-quartus">Use the FIFO library in quartus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Experimental-Physics-SoC-FPGA-Design/Processor-FPGA-Communication-Using-FIFO-FPGA-Part.html#create-pio-in-platform-designer">Create PIO in Platform Designer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Experimental-Physics-SoC-FPGA-Design/Processor-FPGA-Communication-Using-FIFO-FPGA-Part.html#modify-the-standard-de10-nano-soc-ghrd-v">Modify the Standard <code class="code docutils literal notranslate"><span class="pre">DE10_NANO_SoC_GHRD.v</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Experimental-Physics-SoC-FPGA-Design/Processor-FPGA-Communication-Using-FIFO-FPGA-Part.html#the-full-code">The full code</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Experimental-Physics-SoC-FPGA-Design/Processor-FPGA-Communication-Using-FIFO-Processor-Part.html">Processor-FPGA Communication: Using FIFO Processor Part</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Experimental-Physics-SoC-FPGA-Design/Processor-FPGA-Communication-Using-FIFO-Processor-Part.html#what-are-we-gonna-do">What are we gonna do?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Experimental-Physics-SoC-FPGA-Design/Processor-FPGA-Communication-Using-FIFO-Processor-Part.html#modify-the-standard-example-hps-fpga-led-main-c">Modify the Standard Example <code class="code docutils literal notranslate"><span class="pre">HPS_FPGA_LED/main.c</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Experimental-Physics-SoC-FPGA-Design/Processor-FPGA-Communication-Using-FIFO-Processor-Part.html#the-full-code">The full code</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Experimental-Physics-SoC-FPGA-Design/Nodejs-Talking-To-C-Executable-1.html">Nodejs Talking To C Executable 1</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Experimental-Physics-SoC-FPGA-Design/Nodejs-Talking-To-C-Executable-1.html#what-is-the-idea">What is the idea?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Experimental-Physics-SoC-FPGA-Design/Nodejs-Talking-To-C-Executable-1.html#install-nodejs-and-clion">Install Nodejs and Clion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Experimental-Physics-SoC-FPGA-Design/Nodejs-Talking-To-C-Executable-1.html#c-part">C Part</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Experimental-Physics-SoC-FPGA-Design/Nodejs-Talking-To-C-Executable-1.html#nodejs-part">Nodejs Part</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Experimental-Physics-SoC-FPGA-Design/Nodejs-Talking-To-C-Executable-2.html">Nodejs Talking To C Executable 2</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Experimental-Physics-SoC-FPGA-Design/Nodejs-Talking-To-C-Executable-2.html#what-are-we-gonna-do">What are we gonna do?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Experimental-Physics-SoC-FPGA-Design/Nodejs-Talking-To-C-Executable-2.html#c-part">C Part</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Experimental-Physics-SoC-FPGA-Design/Nodejs-Talking-To-C-Executable-2.html#install-nodejs-dependencies">Install Nodejs dependencies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Experimental-Physics-SoC-FPGA-Design/Nodejs-Talking-To-C-Executable-2.html#make-the-module">Make the module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Experimental-Physics-SoC-FPGA-Design/Nodejs-Talking-To-C-Executable-2.html#the-main-program-index-js">The main program: index.js</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Experimental-Physics-SoC-FPGA-Design/Verilog-DataSender.html">Verilog DataSender</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Experimental-Physics-SoC-FPGA-Design/Verilog-DataSender.html#what-is-the-idea">What is the idea?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Experimental-Physics-SoC-FPGA-Design/Verilog-DataSender.html#code">Code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Experimental-Physics-SoC-FPGA-Design/Verilog-DataSender.html#simulation-result">Simulation Result</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Experimental-Physics-SoC-FPGA-Design/Verilog-My16ChannelCounter.html">Verilog My16ChannelCounter</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Experimental-Physics-SoC-FPGA-Design/Verilog-My16ChannelCounter.html#what-is-the-idea">What is the idea?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Experimental-Physics-SoC-FPGA-Design/Verilog-My16ChannelCounter.html#simple-counter-submodule">Simple Counter Submodule</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Experimental-Physics-SoC-FPGA-Design/Verilog-My16ChannelCounter.html#simple-grouper-submodule">Simple Grouper Submodule</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Experimental-Physics-SoC-FPGA-Design/Verilog-My16ChannelCounter.html#main-module">Main Module</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Experimental-Physics-SoC-FPGA-Design/Verilog-MemoryMapper.html">Verilog MemoryMapper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Experimental-Physics-SoC-FPGA-Design/Nodejs-RESTful-API-Basic.html">Nodejs RESTful API Basic</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Experimental-Physics-SoC-FPGA-Design/Nodejs-RESTful-API-Basic.html#what-is-the-idea">What is the idea?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Experimental-Physics-SoC-FPGA-Design/Nodejs-RESTful-API-Basic.html#backend-server">Backend Server</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Experimental-Physics-SoC-FPGA-Design/Nodejs-RESTful-API-Basic.html#frontend-client">Frontend Client</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Experimental-Physics-SoC-FPGA-Design/Nodejs-RESTful-API-Basic.html#username-password-authentication">Username/Password Authentication</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Experimental-Physics-SoC-FPGA-Design/Nodejs-RESTful-API-Basic.html#facebook-authentication">Facebook authentication</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Experimental-Physics-SoC-FPGA-Design/Summary.html">Summary</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Experimental-Physics-SoC-FPGA-Design/Summary.html#directory">Directory</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Experimental-Physics-SoC-FPGA-Design/Summary.html#verilog-part">Verilog Part</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Experimental-Physics-SoC-FPGA-Design/Summary.html#c-part">C Part</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Experimental-Physics-SoC-FPGA-Design/Summary.html#javascript-part">Javascript Part</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Experimental-Physics-SoC-FPGA-Design/Nodejs-RESTful-API-Email-Verification.html">Nodejs RESTful API Email Verification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Experimental-Physics-SoC-FPGA-Design/Nodejs-RESTful-API-Production.html">Nodejs RESTful API Production</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Experimental-Physics-SoC-FPGA-Design/Nodejs-RESTful-API-Production.html#progress">Progress</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Experimental-Physics-SoC-FPGA-Design/Nodejs-RESTful-API-Production.html#database-model-possible-improvements">Database Model: possible improvements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Experimental-Physics-SoC-FPGA-Design/Nodejs-RESTful-API-Production.html#to-do">To Do</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Experimental-Physics-SoC-FPGA-Design/Nodejs-RESTful-API-Production.html#backend-main">Backend Main</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Experimental-Physics-SoC-FPGA-Design/Nodejs-RESTful-API-Production.html#backend-module">Backend Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Experimental-Physics-SoC-FPGA-Design/Nodejs-RESTful-API-Production.html#backend-email-verification-template">Backend Email Verification Template</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Experimental-Physics-SoC-FPGA-Design/Nodejs-RESTful-API-Production.html#frontend-for-testing">Frontend For Testing</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Experimental-Physics-SoC-FPGA-Design/React-Native-Redux-1.html">React Native Redux 1</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Experimental-Physics-SoC-FPGA-Design/React-Native-Redux-1.html#what-is-the-idea">What is the idea?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Experimental-Physics-SoC-FPGA-Design/React-Native-Redux-1.html#structure">Structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Experimental-Physics-SoC-FPGA-Design/React-Native-Redux-1.html#install-dependencies">Install Dependencies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Experimental-Physics-SoC-FPGA-Design/React-Native-Redux-1.html#app-js">app.js</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Experimental-Physics-SoC-FPGA-Design/React-Native-Redux-1.html#components-navigator-js">components/Navigator.js</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Experimental-Physics-SoC-FPGA-Design/React-Native-Redux-1.html#components-home-js">components/Home.js</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Experimental-Physics-SoC-FPGA-Design/React-Native-Redux-1.html#components-search-js">components/Search.js</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Experimental-Physics-SoC-FPGA-Design/React-Native-Redux-1.html#reducers-home-js">reducers/Home.js</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Experimental-Physics-SoC-FPGA-Design/React-Native-Redux-2.html">React Native Redux 2</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Experimental-Physics-SoC-FPGA-Design/React-Native-Redux-2.html#what-is-the-idea">What is the idea?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Experimental-Physics-SoC-FPGA-Design/React-Native-Redux-2.html#issues">Issues</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Experimental-Physics-SoC-FPGA-Design/React-Native-Redux-2.html#components-home-js-gesture-responder">components/Home.js: Gesture Responder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Experimental-Physics-SoC-FPGA-Design/React-Native-Redux-2.html#components-modalexample-js">components/ModalExample.js</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Experimental-Physics-SoC-FPGA-Design/React-Native-Redux-3.html">React Native Redux 3</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Experimental-Physics-SoC-FPGA-Design/React-Native-Redux-3.html#what-is-the-idea">What is the idea?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Experimental-Physics-SoC-FPGA-Design/React-Native-Redux-3.html#functions-moviefinder-js">functions/movieFinder.js</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Experimental-Physics-SoC-FPGA-Design/React-Native-Redux-3.html#components-movielist-js">components/MovieList.js</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Experimental-Physics-SoC-FPGA-Design/React-Native-Redux-3.html#components-moviedetail-js">components/MovieDetail.js</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Experimental-Physics-SoC-FPGA-Design/React-Native-Redux-3.html#components-episodes-js">components/Episodes.js</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Experimental-Physics-SoC-FPGA-Design/React-Native-Redux-3.html#components-styles-js">components/styles.js</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Experimental-Physics-SoC-FPGA-Design/React-Native-Redux-3.html#actions-home-js">actions/Home.js</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Experimental-Physics-SoC-FPGA-Design/React-Native-Redux-3.html#reducers-home-js">reducers/Home.js</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Code-Snippets/index.html">Code Snippets</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Code-Snippets/Tips-C%2B%2B.html">Tips C++</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Code-Snippets/Tips-C%2B%2B.html#using-classes-and-objects-method-1">Using Classes and Objects Method 1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Code-Snippets/Tips-C%2B%2B.html#using-classes-and-objects-method-2">Using Classes and Objects Method 2</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Code-Snippets/Tips-Linux.html">Simple Linux Tips</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Code-Snippets/Tips-Linux.html#could-not-display-an-executable-file">Could not display an executable file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Code-Snippets/Tips-Linux.html#file-permissions">File Permissions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Code-Snippets/Tips-Linux.html#set-path-variable">Set $PATH Variable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Code-Snippets/Tips-Linux.html#internet-speed">Internet Speed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Code-Snippets/Tips-Linux.html#install-deb-file">Install deb File</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Code-Snippets/Tips-Linux.html#install-steam">Install Steam</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Code-Snippets/Tips-Linux.html#install-arduino-with-esp32">Install Arduino with ESP32</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Code-Snippets/Tips-Linux.html#install-quartus">Install Quartus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Code-Snippets/Tips-Linux.html#modelsim-error">ModelSim Error</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Code-Snippets/Tips-Linux.html#install-intel-fpga-soc-eds-embedded-development-suite">Install Intel FPGA SoC EDS (Embedded Development Suite)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Code-Snippets/Tips-Linux.html#install-jekyll">Install Jekyll</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Code-Snippets/Tips-Linux.html#install-android-studio">Install Android Studio</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Code-Snippets/Tips-Linux.html#right-click-on-touch-pad">Right Click On Touch Pad</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Code-Snippets/Tips-Linux.html#angstrom-install-package">Angstrom: Install Package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Code-Snippets/Tips-Linux.html#react-native-errors">React Native Errors</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Code-Snippets/Tips-Linux.html#windows-powershell-tips">Windows Powershell Tips</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Code-Snippets/Tips-Linux.html#id1">React Native Errors</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Code-Snippets/Tips-Linux.html#personal">Personal</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Code-Snippets/Tips-Linux.html#cqt-printer">CQT printer</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Code-Snippets/Google-Scholar-Filter.html">Google Scholar Filter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Code-Snippets/nCoV-Predictor.html">nCoV Predictor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Code-Snippets/Stock-Filter.html">Stock Filter</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Signal-Processing/index.html">Signal Processing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Signal-Processing/Finite-Impulse-Response-Filtering.html">Finite Impulse Response Filtering</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Signal-Processing/Finite-Impulse-Response-Filtering.html#continuous-fourier-transform">Continuous Fourier Transform</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Signal-Processing/Finite-Impulse-Response-Filtering.html#discrete-fourier-transform">Discrete Fourier Transform</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Signal-Processing/Finite-Impulse-Response-Filtering.html#signal-filtering">Signal Filtering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Signal-Processing/Finite-Impulse-Response-Filtering.html#homemade-vs-numpy-fourier-transform">Homemade VS Numpy Fourier Transform</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Signal-Processing/Finite-Impulse-Response-Filtering.html#homemade-vs-numpy-filtering-convolution">Homemade VS Numpy Filtering (Convolution)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Machine Learning</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Machine-Learning/index.html">Machine Learning</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Machine-Learning/PyTorch-Get-Started.html">PyTorch Get Started</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Machine-Learning/PyTorch-Get-Started.html#credit">Credit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Machine-Learning/PyTorch-Get-Started.html#what-is-pytorch">WHAT IS PYTORCH?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Machine-Learning/PyTorch-Get-Started.html#autograd">AUTOGRAD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Machine-Learning/PyTorch-Get-Started.html#neural-networks">NEURAL NETWORKS</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../Machine-Learning/PyTorch-Get-Started.html#kernel-with-padding">Kernel with padding</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Machine-Learning/PyTorch-Get-Started.html#stride-3-2-height-width">Stride (3,2) (height,width)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../Machine-Learning/PyTorch-Get-Started.html#training-a-classifier">TRAINING A CLASSIFIER</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Machine-Learning/PyTorch-Tutorial-DQN.html">PyTorch Tutorial DQN</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Machine-Learning/PyTorch-Tutorial-DQN.html#the-theory">The Theory</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Machine-Learning/PyTorch-Tutorial-DQN.html#the-algorithm">The Algorithm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Machine-Learning/PyTorch-Tutorial-DQN.html#the-pytorch-code">The PyTorch code</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../Machine-Learning/PyTorch-Tutorial-DQN.html#imports">1. imports</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Machine-Learning/PyTorch-Tutorial-DQN.html#using-namedtuple">2. using namedtuple</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Machine-Learning/PyTorch-Tutorial-DQN.html#the-replaymemory-class">3. the ReplayMemory class</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Machine-Learning/PyTorch-Tutorial-DQN.html#the-neural-network-class-without-fully-connected-layer-finding-parameter-for-fully-connected-layer">4.1 the neural network class without fully connected layer (finding parameter for fully connected layer)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Machine-Learning/PyTorch-Tutorial-DQN.html#the-neural-network-class-image-processor-added">4.3 the neural network class: Image processor added</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Machine-Learning/PyTorch-Tutorial-DQN.html#the-agent-class-the-main-algorithm-as-explained-earlier">5. the Agent class (the main algorithm as explained earlier)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Machine-Learning/PyTorch-Tutorial-DQN.html#mygame-class-this-is-totally-up-to-you">6. mygame class (this is totally up to you)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Machine-Learning/PyTorch-Tutorial-DQN.html#the-main-loop">7. the main loop</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../Machine-Learning/PyTorch-Tutorial-DQN.html#code-rewrite">Code Rewrite</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Machine-Learning/PyTorch-Tutorial-RNN-1.html">PyTorch Tutorial RNN 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Machine-Learning/PyTorch-Tutorial-RNN-2.html">PyTorch Tutorial RNN 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Machine-Learning/Awesome-Stock-Ai.html">Awesome Stock Ai</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Machine-Learning/Awesome-Stock-Ai.html#recycle-bin">Recycle Bin</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Machine-Learning/PyTorch-Tutorial-Transformer.html">PyTorch Tutorial Transformer</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Machine-Learning/PyTorch-Tutorial-Transformer.html#transformer-model">Transformer Model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Machine-Learning/PyTorch-Tutorial-Transformer.html#data-and-training">Data And Training</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Machine-Learning/Reinforcement-Learning-Theory.html">Reinforcement Learning Theory</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Machine-Learning/Reinforcement-Learning-Theory.html#origin">Origin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Machine-Learning/Reinforcement-Learning-Theory.html#definition-of-rl">Definition of RL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Machine-Learning/Reinforcement-Learning-Theory.html#bellman-equation-a-self-consistency-equation-just-like-in-density-functional-theory">Bellman equation: A self-consistency equation just like in Density-functional theory</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Machine-Learning/Reinforcement-Learning-Theory.html#policy-gradient">policy gradient</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Machine-Learning/Reinforcement-Learning-Theory.html#soft-actor-critic">Soft Actor-Critic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Machine-Learning/Reinforcement-Learning-Theory.html#policy-optimization-vs-q-learning">Policy Optimization vs Q-Learning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Machine-Learning/Reinforcement-Learning-Theory.html#algorithms">Algorithms</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../Machine-Learning/Reinforcement-Learning-Theory.html#vanilla-policy-gradient">Vanilla Policy Gradient</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Machine-Learning/Reinforcement-Learning-Theory.html#trust-region-policy-optimization-not-in-comparisons">2015 Trust Region Policy Optimization (not in comparisons)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Machine-Learning/Reinforcement-Learning-Theory.html#proximal-policy-optimization">2017 Proximal Policy Optimization</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Machine-Learning/Reinforcement-Learning-Theory.html#deep-deterministic-policy-gradient">2016 Deep Deterministic Policy Gradient</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Machine-Learning/Reinforcement-Learning-Theory.html#twin-delayed-ddpg">2018 Twin Delayed DDPG</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Machine-Learning/Reinforcement-Learning-Theory.html#id1">2018 Soft Actor-Critic</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Neurotechnology</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Neuromorphic-Vision/index.html">Neuromorphic Vision</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Neuromorphic-Vision/Tomasi-Kanade-Factorization.html">Tomasi-Kanade-Factorization</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Neuromorphic-Vision/Tomasi-Kanade-Factorization.html#paper">Paper:</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../Neuromorphic-Vision/Tomasi-Kanade-Factorization.html#algorithm">Algorithm:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Neuromorphic-Vision/Tomasi-Kanade-Factorization.html#singular-value-decomposition">Singular value decomposition:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Neuromorphic-Vision/Tomasi-Kanade-Factorization.html#key-equations-from-paper">Key equations from paper:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Neuromorphic-Vision/Tomasi-Kanade-Factorization.html#note">Note:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Neuromorphic-Vision/Tomasi-Kanade-Factorization.html#my-implementation">My implementation:</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../Neuromorphic-Vision/Tomasi-Kanade-Factorization.html#solve-quadratic-equation-with-pytorch">Solve quadratic equation with pytorch:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Quantum Mechanics</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../Quantum-Computation/index.html">Quantum Computation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Quantum-Computation/notes_on_Transmon_quantum_computer.html">notes on Transmon quantum computer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Quantum-Computation/QuTiP-Notes-1/QuTiP-Notes-1.html">QuTiP Notes 1</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Quantum-Computation/QuTiP-Notes-1/QuTiP-Notes-1.html#introduction-to-qutip">Introduction to QuTiP</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../Quantum-Computation/QuTiP-Notes-1/QuTiP-Notes-1.html#state-vectors-density-matrices-operators">State vectors, Density matrices, Operators</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Quantum-Computation/QuTiP-Notes-1/QuTiP-Notes-1.html#composite-systems-jaynes-cummings-model">Composite systems &amp; Jaynes-Cummings model</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Quantum-Computation/QuTiP-Notes-1/QuTiP-Notes-1.html#unitary-dynamics">Unitary dynamics</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../Quantum-Computation/QuTiP-Notes-1/QuTiP-Notes-1.html#wigner-functions">Wigner functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Quantum-Computation/QuTiP-Notes-1/QuTiP-Notes-1.html#cavity-qubit-gates">Cavity-qubit gates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Quantum-Computation/QuTiP-Notes-1/QuTiP-Notes-1.html#cqed-in-the-dispersive-regime">cQED in the dispersive regime</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Quantum-Computation/QuTiP-Notes-1/QuTiP-Notes-1.html#superconducting-charge-qubits">Superconducting charge qubits</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Quantum-Computation/QuTiP-Notes-1/QuTiP-Notes-1.html#gallery-of-wigner-functions">Gallery of Wigner functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Quantum-Computation/QuTiP-Notes-1/QuTiP-Notes-1.html#optimal-control-overview">Optimal control - Overview</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../Quantum-Computation/QuTiP-Notes-1/QuTiP-Notes-1.html#grape-2005">GRAPE (2005)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Quantum-Computation/QuTiP-Notes-1/QuTiP-Notes-1.html#crab-2014-test-result-slow-and-inaccurate">CRAB (2014) <code class="docutils literal notranslate"><span class="pre">Test</span> <span class="pre">result:</span> <span class="pre">Slow</span> <span class="pre">and</span> <span class="pre">inaccurate</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../Quantum-Computation/QuTiP-Notes-1/QuTiP-Notes-1.html#optimal-control-hadamard">Optimal control - Hadamard</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Quantum-Computation/QuTiP-Notes-1/QuTiP-Notes-1.html#optimal-control-qft">Optimal control - QFT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Quantum-Computation/QuTiP-Notes-1/QuTiP-Notes-1.html#optimal-control-lindbladian">Optimal control - Lindbladian</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Quantum-Computation/Implementing-a-universal-gate-set-on-a-logical-qubit-encoded-in-an-oscillator/Implementing-a-universal-gate-set-on-a-logical-qubit-encoded-in-an-oscillator.html">Implementing a universal gate set on a logical qubit encoded in an oscillator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Quantum-Computation/yarn-Examples-From-Forked-Libraries/yarn-Examples-From-Forked-Libraries.html">yarn: Examples From Forked Libraries</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Quantum-Computation/yarn-Examples-From-Forked-Libraries/yarn-Examples-From-Forked-Libraries.html#id1">What is yarn?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Quantum-Computation/yarn-Examples-From-Forked-Libraries/yarn-Examples-From-Forked-Libraries.html#introduction">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Quantum-Computation/yarn-Examples-From-Forked-Libraries/yarn-Examples-From-Forked-Libraries.html#todo">Todo</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../Quantum-Computation/yarn-Examples-From-Forked-Libraries/yarn-Examples-From-Forked-Libraries.html#import">Import</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Quantum-Computation/yarn-Examples-From-Forked-Libraries/yarn-Examples-From-Forked-Libraries.html#states">states</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Quantum-Computation/yarn-Examples-From-Forked-Libraries/yarn-Examples-From-Forked-Libraries.html#plots">plots</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Quantum-Computation/yarn-Examples-From-Forked-Libraries/yarn-Examples-From-Forked-Libraries.html#hamiltonian-and-controls">hamiltonian and controls</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Quantum-Computation/yarn-Examples-From-Forked-Libraries/yarn-Examples-From-Forked-Libraries.html#use-different-packages">use different packages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Quantum-Computation/yarn-Examples-From-Forked-Libraries/yarn-Examples-From-Forked-Libraries.html#state-transfer-fock">state transfer: Fock</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Quantum-Computation/yarn-Examples-From-Forked-Libraries/yarn-Examples-From-Forked-Libraries.html#state-transfer-coherent">state transfer: Coherent</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Quantum-Computation/yarn-Examples-From-Forked-Libraries/yarn-Examples-From-Forked-Libraries.html#state-transfer-cat">state transfer: Cat</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../Quantum-Computation/yarn-Examples-From-Forked-Libraries/yarn-Examples-From-Forked-Libraries.html#the-schuster-lab-codes">The Schuster Lab codes</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../Quantum-Computation/yarn-Examples-From-Forked-Libraries/yarn-Examples-From-Forked-Libraries.html#schusterlabqoc1-2017">SchusterLabQoc1 (2017)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Quantum-Computation/yarn-Examples-From-Forked-Libraries/yarn-Examples-From-Forked-Libraries.html#schusterlabqoc2-2019">SchusterLabQoc2 (2019)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Quantum-Computation/Quantum-Optimal-Control-using-TensorFlow.html">Quantum Optimal Control using TensorFlow</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Quantum-Computation/Quantum-Optimal-Control-using-TensorFlow.html#my-code">My code</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Quantum-Mechanics-Feynman-Path-Integral/index.html">Quantum Mechanics: Feynman Path Integral</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Quantum-Mechanics-Feynman-Path-Integral/Classical-Action.html">Classical Action</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Quantum-Mechanics-Feynman-Path-Integral/Classical-Action.html#what-is-the-problem">What is the problem ?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Quantum-Mechanics-Feynman-Path-Integral/Classical-Action.html#derivation">Derivation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Quantum-Mechanics-Feynman-Path-Integral/Classical-Action.html#example-1-newton-s-law">Example 1: Newton’s Law</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Quantum-Mechanics-Feynman-Path-Integral/Propagator.html">Propagator</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Quantum-Mechanics-Feynman-Path-Integral/Propagator.html#dependency">Dependency</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Quantum-Mechanics-Feynman-Path-Integral/Propagator.html#what-is-the-problem">What is the problem ?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Quantum-Mechanics-Feynman-Path-Integral/Propagator.html#derivation">Derivation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Quantum-Mechanics-Feynman-Path-Integral/Propagator.html#doubt-1">Doubt 1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Quantum-Mechanics-Feynman-Path-Integral/Propagator.html#derivation-part-2">Derivation Part 2</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Quantum-Optics/index.html">Quantum Optics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Quantum-Optics/Quantization-Of-LC-Circuit.html">Quantization Of LC Circuit</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Quantum-Optics/Quantization-Of-LC-Circuit.html#what-is-the-problem">What is the problem ?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Quantum-Optics/Quantization-Of-LC-Circuit.html#derivation">Derivation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Quantum-Optics/Quantization-Of-EM-Field.html">Quantization Of EM Field</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Quantum-Optics/Quantization-Of-EM-Field.html#what-is-the-problem">What is the problem ?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Quantum-Optics/Quantization-Of-EM-Field.html#derivation">Derivation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Quantum-Optics/Quantum-States-Of-EM-Field.html">Quantum States Of EM Field</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Quantum-Optics/Quantum-States-Of-EM-Field.html#what-is-the-problem">What is the problem ?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Quantum-Optics/Quantum-States-Of-EM-Field.html#derivation">Derivation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Density Functional Theory</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="OLD-Hartree-Fock-Method.html">OLD Hartree Fock Method</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="OLD-Hartree-Fock-Method.html#what-is-the-problem">What is the problem ?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="OLD-Hartree-Fock-Method.html#derivation">Derivation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="OLD-Density-Functional-Theory.html">OLD Density Functional Theory</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="OLD-Density-Functional-Theory.html#what-is-the-problem">What is the problem ?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="OLD-Density-Functional-Theory.html#derivation">Derivation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Hohenberg-Kohn-Variational-Principle.html">Hohenberg Kohn Variational Principle</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Hohenberg-Kohn-Variational-Principle.html#derivation">Derivation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Kohn-Sham-Equations.html">Kohn Sham Equations</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Kohn-Sham-Equations.html#derivation">Derivation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Exchange-and-Correlation.html">Exchange and Correlation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Exchange-and-Correlation.html#what-is-the-idea">What is the idea?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Exchange-and-Correlation.html#electron-gas">Electron gas</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Exchange-and-Correlation.html#non-interacting">Non-Interacting</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Exchange-and-Correlation.html#interacting">Interacting</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Exchange-and-Correlation.html#hartree-fock-equation">Hartree Fock Equation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Exchange-and-Correlation.html#exchange-energy">Exchange Energy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Exchange-and-Correlation.html#task-contact-interaction">Task: contact interaction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Exchange-and-Correlation.html#correlation">correlation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Exchange-and-Correlation.html#helper-delta-function">Helper: Delta Function</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="DFT-In-Momentum-Space.html">DFT In Momentum Space</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="DFT-In-Momentum-Space.html#intro">Intro</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="DFT-In-Momentum-Space.html#history">History</a></li>
+<li class="toctree-l4"><a class="reference internal" href="DFT-In-Momentum-Space.html#some-discussions">Some discussions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="DFT-In-Momentum-Space.html#goal">Goal</a></li>
+<li class="toctree-l4"><a class="reference internal" href="DFT-In-Momentum-Space.html#action">Action</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="DFT-In-Momentum-Space.html#effective-energy-v">Effective energy <span class="math notranslate nohighlight">\(V\)</span></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="DFT-In-Momentum-Space.html#what-is-the-problem">What is the problem?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="DFT-In-Momentum-Space.html#approximations">Approximations</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="DFT-In-Momentum-Space.html#effective-energy-t">Effective energy <span class="math notranslate nohighlight">\(T\)</span></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="DFT-In-Momentum-Space.html#id1">Approximations</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="DFT-In-Momentum-Space.html#thomas-fermi-approximation">Thomas Fermi Approximation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="DFT-In-Momentum-Space.html#task">Task</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Density-Matrix.html">Density Matrix</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Density-Matrix.html#task">Task</a></li>
+</ul>
+</li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">CODE 1D DFT</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#note">Note</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#credit">Credit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#differentiation">Differentiation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#free-particle-hamiltonian">Free particle Hamiltonian</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#harmonic-oscillator">Harmonic oscillator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#potential-well">Potential well</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#density">Density</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#functional-derivative">Functional Derivative</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#exchange-potential">Exchange Potential</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coulomb-potential">Coulomb potential</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#solve-the-kohnsham-equations-self-consistency-loop">Solve the Kohn–Sham Equations: Self-Consistency Loop</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#wrap-up">Wrap up</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="CODE-1D-DPFT.html">CODE 1D DPFT</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="CODE-1D-DPFT.html#note">Note</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CODE-1D-DPFT.html#thomas-fermi-kinetic-energy">Thomas Fermi Kinetic Energy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CODE-1D-DPFT.html#without-interaction">Without Interaction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CODE-1D-DPFT.html#the-interaction">The Interaction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CODE-1D-DPFT.html#self-consistent-loop">Self Consistent Loop</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CODE-1D-DPFT.html#simple-implementation-in-python">Simple implementation in Python</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="CODE-1D-DPFT-Momentum-Space.html">CODE 1D DPFT Momentum Space</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="CODE-1D-DPFT-Momentum-Space.html#thomas-fermi-approximation">Thomas Fermi Approximation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CODE-1D-DPFT-Momentum-Space.html#effective-kinetic-envergy-t">Effective Kinetic Envergy <span class="math notranslate nohighlight">\(T\)</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="CODE-1D-DPFT-Momentum-Space.html#the-interaction">The Interaction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CODE-1D-DPFT-Momentum-Space.html#why-momentum-space">Why momentum space ?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CODE-1D-DPFT-Momentum-Space.html#simple-dpft-in-momentum-space-hamonic-oscillator-1d">Simple DPFT in Momentum space (Hamonic Oscillator 1D)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CODE-1D-DPFT-Momentum-Space.html#simple-dpft-in-momentum-space-coulomb-potential-1d">Simple DPFT in Momentum space (Coulomb potential 1D)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="CODE-3D-DPFT-Momentum-Space.html">CODE 3D DPFT Momentum Space</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="CODE-3D-DPFT-Momentum-Space.html#highlight">Highlight</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CODE-3D-DPFT-Momentum-Space.html#todo">Todo</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="CODE-3D-DPFT-Momentum-Space.html#initialize">Initialize</a></li>
+<li class="toctree-l4"><a class="reference internal" href="CODE-3D-DPFT-Momentum-Space.html#funcs">Funcs</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="CODE-3D-DPFT-Momentum-Space.html#gettkin">getTkin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CODE-3D-DPFT-Momentum-Space.html#gettintintegrand">getTintIntegrand</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CODE-3D-DPFT-Momentum-Space.html#make-space">make space</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CODE-3D-DPFT-Momentum-Space.html#getrho">getRho</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CODE-3D-DPFT-Momentum-Space.html#tint">Tint</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="CODE-3D-DPFT-Momentum-Space.html#main-class">Main class</a></li>
+<li class="toctree-l4"><a class="reference internal" href="CODE-3D-DPFT-Momentum-Space.html#usage">Usage</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="CODE-3D-DPFT-Momentum-Space.html#run-one-test">run one test</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CODE-3D-DPFT-Momentum-Space.html#save-and-plot">save and plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CODE-3D-DPFT-Momentum-Space.html#run-many-tests">run many tests</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Relativity</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Relativity/index.html">Relativity</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Relativity/Special-vs-General-Relativity.html">Special vs General Relativity</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Relativity/Special-vs-General-Relativity.html#what-is-the-problem">What is the problem ?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Relativity/Special-vs-General-Relativity.html#derivation">Derivation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Relativity/Coordinate-Transformation-And-Tensors.html">Coordinate Transformation And Tensors</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Relativity/Coordinate-Transformation-And-Tensors.html#what-is-the-problem">What is the problem ?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Relativity/Coordinate-Transformation-And-Tensors.html#derivation">Derivation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Relativity/SR-Lorentz-Transformation.html">SR: Lorentz Transformation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Relativity/SR-Lorentz-Transformation.html#derivation">Derivation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Relativity/GR-Solving-Geodesic-Equation.html">GR: Solving Geodesic Equation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Relativity/GR-Solving-Geodesic-Equation.html#derivation">Derivation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Relativity/GR-Conservation-Of-Energy.html">GR: Conservation Of Energy</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Relativity/GR-Conservation-Of-Energy.html#derivation">Derivation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Statistical Mechanics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Thermodynamics-And-Statistical-Mechanics/index.html">Thermodynamics And Statistical Mechanics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Thermodynamics-And-Statistical-Mechanics/Legendre-Transformation.html">Legendre Transformation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Thermodynamics-And-Statistical-Mechanics/Legendre-Transformation.html#dependency">Dependency</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Thermodynamics-And-Statistical-Mechanics/Legendre-Transformation.html#what-is-the-problem">What is the problem ?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Thermodynamics-And-Statistical-Mechanics/Legendre-Transformation.html#derivation">Derivation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Thermodynamics-And-Statistical-Mechanics/Thermodynamic-Potentials.html">Thermodynamic Potentials</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Thermodynamics-And-Statistical-Mechanics/Thermodynamic-Potentials.html#dependency">Dependency</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Thermodynamics-And-Statistical-Mechanics/Thermodynamic-Potentials.html#what-is-the-problem">What is the problem ?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Thermodynamics-And-Statistical-Mechanics/Thermodynamic-Potentials.html#derivation">Derivation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Thermodynamics-And-Statistical-Mechanics/Boltzmann-Entropy.html">Boltzmann Entropy</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Thermodynamics-And-Statistical-Mechanics/Boltzmann-Entropy.html#dependency">Dependency</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Thermodynamics-And-Statistical-Mechanics/Boltzmann-Entropy.html#what-is-the-problem">What is the problem ?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Thermodynamics-And-Statistical-Mechanics/Boltzmann-Entropy.html#derivation">Derivation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Thermodynamics-And-Statistical-Mechanics/Boltzmann-Entropy.html#example-1-two-state-system">Example 1: Two State System</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">BSc-Study-Notes</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Density Functional Theory</a></li>
+      <li class="breadcrumb-item active">CODE 1D DFT</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/Density-Functional-Theory/CODE-1D-DFT.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="code-1d-dft">
+<h1>CODE 1D DFT<a class="headerlink" href="#code-1d-dft" title="Link to this heading"></a></h1>
+<section id="note">
+<h2>Note<a class="headerlink" href="#note" title="Link to this heading"></a></h2>
+<p>The <code class="code docutils literal notranslate"><span class="pre">.rst</span></code> file for this page is generated using Jupyter Notebook, from the <code class="code docutils literal notranslate"><span class="pre">.ipynb</span></code> file: <a class="reference external" href="https://github.com/tesla-cat/Physics/blob/master/ipynb/Density_Functional_Theory_1D.ipynb">Density Functional Theory 1D</a></p>
+</section>
+<section id="credit">
+<h2>Credit<a class="headerlink" href="#credit" title="Link to this heading"></a></h2>
+<p>This note is modified from <a class="reference external" href="https://github.com/tamuhey/python_1d_dft/blob/master/numpy_1ddft.ipynb">Numpy
+1D-DFT</a></p>
+</section>
+<section id="differentiation">
+<h2>Differentiation<a class="headerlink" href="#differentiation" title="Link to this heading"></a></h2>
+<p>First order differentiation</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}({dy\over dx})_i = {y_{i+1}-y_i \over \Delta x}\equiv D_{ij}y_j \\
+\Rightarrow D_{ij}= {\delta_{i+1,j}-\delta_{i,j} \over \Delta x}\end{split}\]</div>
+<p>Second order differentiation</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}({d^2y\over dx^2})_i \equiv D_{ij}^{(2)}y_j
+\\D_{ij}^{(2)}= {\delta_{i+1,j}-2\delta_{i,j}+\delta_{i-1,j} \over (\Delta x)^2}\\ =-D_{ik}D_{jk}\\
+\Rightarrow D^{(2)}=-DD^T\end{split}\]</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="n">n_grid</span><span class="o">=</span><span class="mi">200</span>
+<span class="n">x</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="n">n_grid</span><span class="p">)</span>
+<span class="n">y</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="n">Delta_x</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">diagflat</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">n_grid</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span><span class="o">-</span><span class="mi">2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">n_grid</span><span class="p">))</span>
+<span class="n">D</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diagflat</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">n_grid</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">n_grid</span><span class="p">)</span>
+<span class="n">D</span> <span class="o">=</span> <span class="n">D</span> <span class="o">/</span> <span class="n">Delta_x</span>
+
+<span class="n">D2</span> <span class="o">=</span> <span class="o">-</span> <span class="n">D</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">D</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+<span class="n">D2</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">=</span><span class="n">D2</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="c1">#The derivative may not be well defined at the end of the grid</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;f&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="n">D</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">y</span><span class="p">)[:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;D&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="n">D2</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">y</span><span class="p">)[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;D2&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[[</span><span class="mf">0.</span> <span class="mf">0.</span> <span class="mf">0.</span> <span class="o">...</span> <span class="mf">0.</span> <span class="mf">0.</span> <span class="mf">0.</span><span class="p">]</span>
+ <span class="p">[</span><span class="mf">0.</span> <span class="mf">0.</span> <span class="mf">0.</span> <span class="o">...</span> <span class="mf">0.</span> <span class="mf">0.</span> <span class="mf">0.</span><span class="p">]</span>
+ <span class="p">[</span><span class="mf">1.</span> <span class="mf">0.</span> <span class="mf">0.</span> <span class="o">...</span> <span class="mf">0.</span> <span class="mf">0.</span> <span class="mf">0.</span><span class="p">]</span>
+ <span class="o">...</span>
+ <span class="p">[</span><span class="mf">0.</span> <span class="mf">0.</span> <span class="mf">0.</span> <span class="o">...</span> <span class="mf">0.</span> <span class="mf">0.</span> <span class="mf">0.</span><span class="p">]</span>
+ <span class="p">[</span><span class="mf">0.</span> <span class="mf">0.</span> <span class="mf">0.</span> <span class="o">...</span> <span class="mf">0.</span> <span class="mf">0.</span> <span class="mf">0.</span><span class="p">]</span>
+ <span class="p">[</span><span class="mf">0.</span> <span class="mf">0.</span> <span class="mf">0.</span> <span class="o">...</span> <span class="mf">1.</span> <span class="mf">0.</span> <span class="mf">0.</span><span class="p">]]</span>
+<span class="p">[[</span><span class="mf">1.</span> <span class="mf">0.</span> <span class="mf">0.</span> <span class="o">...</span> <span class="mf">0.</span> <span class="mf">0.</span> <span class="mf">0.</span><span class="p">]</span>
+ <span class="p">[</span><span class="mf">0.</span> <span class="mf">1.</span> <span class="mf">0.</span> <span class="o">...</span> <span class="mf">0.</span> <span class="mf">0.</span> <span class="mf">0.</span><span class="p">]</span>
+ <span class="p">[</span><span class="mf">0.</span> <span class="mf">0.</span> <span class="mf">1.</span> <span class="o">...</span> <span class="mf">0.</span> <span class="mf">0.</span> <span class="mf">0.</span><span class="p">]</span>
+ <span class="o">...</span>
+ <span class="p">[</span><span class="mf">0.</span> <span class="mf">0.</span> <span class="mf">0.</span> <span class="o">...</span> <span class="mf">1.</span> <span class="mf">0.</span> <span class="mf">0.</span><span class="p">]</span>
+ <span class="p">[</span><span class="mf">0.</span> <span class="mf">0.</span> <span class="mf">0.</span> <span class="o">...</span> <span class="mf">0.</span> <span class="mf">1.</span> <span class="mf">0.</span><span class="p">]</span>
+ <span class="p">[</span><span class="mf">0.</span> <span class="mf">0.</span> <span class="mf">0.</span> <span class="o">...</span> <span class="mf">0.</span> <span class="mf">0.</span> <span class="mf">1.</span><span class="p">]]</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">matplotlib</span><span class="o">.</span><span class="n">legend</span><span class="o">.</span><span class="n">Legend</span> <span class="n">at</span> <span class="mh">0x7fcc1fc68048</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<img alt="../_images/output_3_2.webp" src="../_images/output_3_2.webp" />
+</section>
+<section id="free-particle-hamiltonian">
+<h2>Free particle Hamiltonian<a class="headerlink" href="#free-particle-hamiltonian" title="Link to this heading"></a></h2>
+<p>(in a box given by grid size 10)</p>
+<div class="math notranslate nohighlight">
+\[H=T=-{\hbar^2 \over 2m}\nabla^2\]</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">hbar</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">m</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">H_FreeParticle</span> <span class="o">=</span> <span class="o">-</span> <span class="p">(</span><span class="n">hbar</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">m</span><span class="p">))</span> <span class="o">*</span> <span class="n">D2</span>
+<span class="n">EigenValue</span><span class="p">,</span> <span class="n">EigenVector_FreeParticle</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">eigh</span><span class="p">(</span><span class="n">H_FreeParticle</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+  <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">EigenVector_FreeParticle</span><span class="p">[:,</span><span class="n">i</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;EigenValue: </span><span class="si">{</span><span class="n">EigenValue</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">matplotlib</span><span class="o">.</span><span class="n">legend</span><span class="o">.</span><span class="n">Legend</span> <span class="n">at</span> <span class="mh">0x7fcc22da2da0</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<img alt="../_images/output_5_1.webp" src="../_images/output_5_1.webp" />
+</section>
+<section id="harmonic-oscillator">
+<h2>Harmonic oscillator<a class="headerlink" href="#harmonic-oscillator" title="Link to this heading"></a></h2>
+<div class="math notranslate nohighlight">
+\[H=-{\hbar^2 \over 2m}\nabla^2 +x^2\]</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">HarmonicPotential</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diagflat</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">x</span><span class="p">)</span>
+<span class="n">H_HarmonicOscillator</span> <span class="o">=</span> <span class="n">H_FreeParticle</span> <span class="o">+</span> <span class="n">HarmonicPotential</span>
+<span class="n">EigenValue</span><span class="p">,</span> <span class="n">EigenVector_HarmonicOscillator</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">eigh</span><span class="p">(</span><span class="n">H_HarmonicOscillator</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+  <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">EigenVector_HarmonicOscillator</span><span class="p">[:,</span><span class="n">i</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;EigenValue: </span><span class="si">{</span><span class="n">EigenValue</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">matplotlib</span><span class="o">.</span><span class="n">legend</span><span class="o">.</span><span class="n">Legend</span> <span class="n">at</span> <span class="mh">0x7fcc22480358</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<img alt="../_images/output_7_1.webp" src="../_images/output_7_1.webp" />
+</section>
+<section id="potential-well">
+<h2>Potential well<a class="headerlink" href="#potential-well" title="Link to this heading"></a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">PotentialWell</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">full_like</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="mf">1e10</span><span class="p">)</span>
+<span class="n">PotentialWell</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">logical_and</span><span class="p">(</span><span class="n">x</span><span class="o">&gt;-</span><span class="mi">2</span><span class="p">,</span><span class="n">x</span><span class="o">&lt;</span><span class="mi">2</span><span class="p">)]</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">PotentialWell</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diagflat</span><span class="p">(</span><span class="n">PotentialWell</span><span class="p">)</span>
+
+<span class="n">H_PotentialWell</span> <span class="o">=</span> <span class="n">H_FreeParticle</span> <span class="o">+</span> <span class="n">PotentialWell</span>
+<span class="n">EigenValue</span><span class="p">,</span> <span class="n">EigenVector_PotentialWell</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">eigh</span><span class="p">(</span><span class="n">H_PotentialWell</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+  <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">EigenVector_PotentialWell</span><span class="p">[:,</span><span class="n">i</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;EigenValue: </span><span class="si">{</span><span class="n">EigenValue</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">matplotlib</span><span class="o">.</span><span class="n">legend</span><span class="o">.</span><span class="n">Legend</span> <span class="n">at</span> <span class="mh">0x7fcc1fae82e8</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<img alt="../_images/output_9_1.webp" src="../_images/output_9_1.webp" />
+</section>
+<section id="density">
+<h2>Density<a class="headerlink" href="#density" title="Link to this heading"></a></h2>
+<p>Each state <span class="math notranslate nohighlight">\(k\)</span> (EigenVector) can have <span class="math notranslate nohighlight">\(N_k=0,1\text{ or }2\)</span>
+electrons</p>
+<div class="math notranslate nohighlight">
+\[n(x)=\sum\limits_k N_k |\psi_k(x)|^2\]</div>
+<p>Note that the eigenvalues (energy) given by <strong>np.linalg.eigh</strong> is
+automatically ordered from small to large</p>
+<p>Thus if <span class="math notranslate nohighlight">\(N_\text{total}=5\)</span> for example,
+<span class="math notranslate nohighlight">\(N_0=N_1=2,N_2=1,N_{&gt;2}=0\)</span></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">Integrate</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">axis</span> <span class="o">=</span> <span class="mi">0</span><span class="p">):</span>
+  <span class="n">dx</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+  <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">y</span><span class="o">*</span><span class="n">dx</span><span class="p">,</span> <span class="n">axis</span> <span class="o">=</span> <span class="n">axis</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">GetDensity</span><span class="p">(</span><span class="n">N_total</span><span class="p">,</span> <span class="n">psi</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+  <span class="n">I</span> <span class="o">=</span> <span class="n">Integrate</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">psi</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+  <span class="n">normalized_psi</span> <span class="o">=</span> <span class="n">psi</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">I</span><span class="p">)[</span><span class="kc">None</span><span class="p">,:]</span>  <span class="c1"># ???</span>
+
+  <span class="n">N_k</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N_total</span><span class="o">//</span><span class="mi">2</span><span class="p">)]</span>
+  <span class="k">if</span> <span class="n">N_total</span> <span class="o">%</span> <span class="mi">2</span><span class="p">:</span>
+    <span class="n">N_k</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+  <span class="n">density</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">normalized_psi</span><span class="p">[:,</span><span class="mi">0</span><span class="p">])</span>
+  <span class="k">for</span> <span class="n">N_k_</span><span class="p">,</span> <span class="n">psi</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">N_k</span><span class="p">,</span> <span class="n">normalized_psi</span><span class="o">.</span><span class="n">T</span><span class="p">):</span>
+    <span class="n">density</span> <span class="o">+=</span> <span class="n">N_k_</span> <span class="o">*</span> <span class="p">(</span><span class="n">psi</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+  <span class="k">return</span> <span class="n">density</span>
+
+<span class="n">N_total</span> <span class="o">=</span> <span class="mi">17</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">GetDensity</span><span class="p">(</span><span class="n">N_total</span><span class="p">,</span><span class="n">EigenVector_FreeParticle</span><span class="p">,</span> <span class="n">x</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;FreeParticle&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">GetDensity</span><span class="p">(</span><span class="n">N_total</span><span class="p">,</span><span class="n">EigenVector_HarmonicOscillator</span><span class="p">,</span> <span class="n">x</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;HarmonicOscillator&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">GetDensity</span><span class="p">(</span><span class="n">N_total</span><span class="p">,</span><span class="n">EigenVector_PotentialWell</span><span class="p">,</span> <span class="n">x</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;PotentialWell&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">matplotlib</span><span class="o">.</span><span class="n">legend</span><span class="o">.</span><span class="n">Legend</span> <span class="n">at</span> <span class="mh">0x7fcc1fa1f240</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<img alt="../_images/output_11_1.webp" src="../_images/output_11_1.webp" />
+</section>
+<section id="functional-derivative">
+<h2>Functional Derivative<a class="headerlink" href="#functional-derivative" title="Link to this heading"></a></h2>
+<p>a generalization of the Euler–Lagrange equation:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}F[n]=\int f(\vec{r},n(\vec{r}),\nabla n(\vec{r})) \; dr\\
+\Rightarrow {\delta F \over \delta n} = {\partial f \over \partial n}-\nabla\cdot {\partial f \over \partial \nabla n}\end{split}\]</div>
+</section>
+<section id="exchange-potential">
+<h2>Exchange Potential<a class="headerlink" href="#exchange-potential" title="Link to this heading"></a></h2>
+<p>The <strong>Exchange-Correlation Functional</strong> is a correction to the
+electronic energy that approximates the effect of electron interactions.</p>
+<p>To keep life simple, we ignore <strong>Correlation</strong> because its expression is
+more tedious than interesting to implement.</p>
+<p>Consider therefore the <strong>Exchange Functional</strong> in the <strong>Local Density
+Approximation (LDA)</strong>:</p>
+<div class="math notranslate nohighlight">
+\[E_{Ex}^{LDA}[n]=-{3\over 4}({3\over \pi})^{1/3}\int n^{4/3}\;dx\]</div>
+<p>In the derivation of the <strong>Kohn-Sham Equations</strong>, the <strong>potential
+corresponding to each energy term</strong> is defined as the derivative of the
+energy with respect to the density. The <strong>Exchange Potential</strong> is
+therefore:</p>
+<div class="math notranslate nohighlight">
+\[v_{Ex}^{LDA}(x)={\delta E_{Ex}^{LDA} \over \delta n}=-({3\over \pi})^{1/3} n^{1/3}(x)\]</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">GetExchange</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">x</span><span class="p">):</span>
+  <span class="n">ExchangeEnergy</span> <span class="o">=</span> <span class="o">-</span><span class="mi">3</span><span class="o">/</span><span class="mi">4</span> <span class="o">*</span> <span class="p">(</span><span class="mi">3</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span> <span class="o">*</span> <span class="n">Integrate</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">n</span><span class="o">**</span><span class="p">(</span><span class="mi">4</span><span class="o">/</span><span class="mi">3</span><span class="p">))</span>
+  <span class="n">ExchangePotential</span> <span class="o">=</span> <span class="o">-</span> <span class="p">(</span><span class="mi">3</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span> <span class="o">*</span> <span class="n">n</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span>
+  <span class="k">return</span> <span class="n">ExchangeEnergy</span><span class="p">,</span> <span class="n">ExchangePotential</span>
+</pre></div>
+</div>
+</section>
+<section id="coulomb-potential">
+<h2>Coulomb potential<a class="headerlink" href="#coulomb-potential" title="Link to this heading"></a></h2>
+<p>The <strong>Electrostatic Energy</strong> or <strong>Hartree Energy</strong> is given by</p>
+<div class="math notranslate nohighlight">
+\[E_{Ha}^{3D}={1\over 2}\iint {n(\vec{r}),n(\vec{r}') \over |\vec{r}-\vec{r}'|} \; d\vec{r} \; d\vec{r}'\]</div>
+<p>This expression converges in 3D, but not in 1D. Hence we cheat and use a
+modified form:</p>
+<div class="math notranslate nohighlight">
+\[E_{Ha}^{1D}={1\over 2}\iint {n(x),n(x') \over \sqrt{(x-x')^2+\epsilon}} \; dx \; dx'\]</div>
+<p>Again, the potential is the derivative of the energy with respect to the
+density:</p>
+<div class="math notranslate nohighlight">
+\[v_{Ha}^{1D}(x)={\delta E_{Ha}^{1D} \over \delta n}= \int {n(x') \over \sqrt{(x-x')^2+\epsilon}} \; dx'\]</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">GetHartree</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">epsilon</span><span class="o">=</span><span class="mf">1e-1</span><span class="p">):</span>
+  <span class="n">Delta_x</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+  <span class="n">HartreeEnergy</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">n</span><span class="p">[</span><span class="kc">None</span><span class="p">,:]</span><span class="o">*</span><span class="n">n</span><span class="p">[:,</span><span class="kc">None</span><span class="p">]</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="n">x</span><span class="p">[</span><span class="kc">None</span><span class="p">,:]</span><span class="o">-</span><span class="n">x</span><span class="p">[:,</span><span class="kc">None</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">epsilon</span><span class="p">)</span><span class="o">*</span><span class="n">Delta_x</span><span class="o">*</span><span class="n">Delta_x</span><span class="p">)</span>
+  <span class="n">HartreePotential</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">n</span><span class="p">[</span><span class="kc">None</span><span class="p">,:]</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="n">x</span><span class="p">[</span><span class="kc">None</span><span class="p">,:]</span><span class="o">-</span><span class="n">x</span><span class="p">[:,</span><span class="kc">None</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">epsilon</span><span class="p">)</span><span class="o">*</span><span class="n">Delta_x</span><span class="p">,</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+  <span class="k">return</span> <span class="n">HartreeEnergy</span><span class="p">,</span> <span class="n">HartreePotential</span>
+</pre></div>
+</div>
+</section>
+<section id="solve-the-kohnsham-equations-self-consistency-loop">
+<h2>Solve the Kohn–Sham Equations: Self-Consistency Loop<a class="headerlink" href="#solve-the-kohnsham-equations-self-consistency-loop" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p>initialize the density (you can take an arbitrary constant)</p></li>
+<li><p>Calculate the Exchange and Hatree potentials</p></li>
+<li><p>Calculate the Hamiltonian</p></li>
+<li><p>Calculate the eigenvalues and eigenvectors (wavefunctions)</p></li>
+<li><p>If not converged, calculate the density and back to 1</p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n_grid</span><span class="p">)</span>
+<span class="n">LastEnergy</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="s2">&quot;inf&quot;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1000</span><span class="p">):</span>
+  <span class="n">ExchangeEnergy</span><span class="p">,</span> <span class="n">ExchangePotential</span> <span class="o">=</span> <span class="n">GetExchange</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">x</span><span class="p">)</span>
+  <span class="n">HartreeEnergy</span><span class="p">,</span> <span class="n">HartreePotential</span> <span class="o">=</span> <span class="n">GetHartree</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">x</span><span class="p">)</span>
+
+  <span class="n">H</span> <span class="o">=</span> <span class="n">H_FreeParticle</span> <span class="o">+</span> <span class="n">HarmonicPotential</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">diagflat</span><span class="p">(</span><span class="n">ExchangePotential</span><span class="o">+</span><span class="n">HartreePotential</span><span class="p">)</span>
+  <span class="n">EigenValue</span><span class="p">,</span> <span class="n">EigenVector_DFT</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">eigh</span><span class="p">(</span><span class="n">H</span><span class="p">)</span>
+  <span class="n">change</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">EigenValue</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="n">LastEnergy</span><span class="p">)</span>
+  <span class="n">LastEnergy</span> <span class="o">=</span> <span class="n">EigenValue</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Ground State Energy:&quot;</span><span class="p">,</span><span class="n">EigenValue</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="s2">&quot;.. Change:&quot;</span><span class="p">,</span><span class="n">change</span><span class="p">)</span>
+  <span class="k">if</span> <span class="n">change</span> <span class="o">&lt;</span> <span class="mf">1e-5</span><span class="p">:</span>
+    <span class="k">break</span>
+
+  <span class="n">n</span> <span class="o">=</span> <span class="n">GetDensity</span><span class="p">(</span><span class="n">N_total</span><span class="p">,</span> <span class="n">EigenVector_DFT</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">for i in range(5):</span>
+<span class="sd">  plt.plot(x,EigenVector_DFT[:,i], label=f&quot;EigenValue: {EigenValue[i]:.3f}&quot;)</span>
+<span class="sd">plt.legend()</span>
+<span class="sd">&#39;&#39;&#39;</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">GetDensity</span><span class="p">(</span><span class="n">N_total</span><span class="p">,</span><span class="n">EigenVector_HarmonicOscillator</span><span class="p">,</span> <span class="n">x</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;HarmonicOscillator 1 electron&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">GetDensity</span><span class="p">(</span><span class="n">N_total</span><span class="p">,</span> <span class="n">EigenVector_DFT</span><span class="p">,</span> <span class="n">x</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;HarmonicOscillator 17 electrons&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Ground</span> <span class="n">State</span> <span class="n">Energy</span><span class="p">:</span> <span class="mf">0.7069489216396394</span> <span class="o">..</span> <span class="n">Change</span><span class="p">:</span> <span class="n">inf</span>
+<span class="n">Ground</span> <span class="n">State</span> <span class="n">Energy</span><span class="p">:</span> <span class="mf">16.362481113553386</span> <span class="o">..</span> <span class="n">Change</span><span class="p">:</span> <span class="mf">15.655532191913746</span>
+<span class="n">Ground</span> <span class="n">State</span> <span class="n">Energy</span><span class="p">:</span> <span class="mf">13.802125164165675</span> <span class="o">..</span> <span class="n">Change</span><span class="p">:</span> <span class="mf">2.560355949387711</span>
+<span class="n">Ground</span> <span class="n">State</span> <span class="n">Energy</span><span class="p">:</span> <span class="mf">15.300177750512375</span> <span class="o">..</span> <span class="n">Change</span><span class="p">:</span> <span class="mf">1.4980525863467005</span>
+<span class="n">Ground</span> <span class="n">State</span> <span class="n">Energy</span><span class="p">:</span> <span class="mf">14.411948982556314</span> <span class="o">..</span> <span class="n">Change</span><span class="p">:</span> <span class="mf">0.8882287679560612</span>
+<span class="n">Ground</span> <span class="n">State</span> <span class="n">Energy</span><span class="p">:</span> <span class="mf">14.946992808765927</span> <span class="o">..</span> <span class="n">Change</span><span class="p">:</span> <span class="mf">0.5350438262096127</span>
+<span class="n">Ground</span> <span class="n">State</span> <span class="n">Energy</span><span class="p">:</span> <span class="mf">14.624165620778795</span> <span class="o">..</span> <span class="n">Change</span><span class="p">:</span> <span class="mf">0.32282718798713184</span>
+<span class="n">Ground</span> <span class="n">State</span> <span class="n">Energy</span><span class="p">:</span> <span class="mf">14.820098486380779</span> <span class="o">..</span> <span class="n">Change</span><span class="p">:</span> <span class="mf">0.19593286560198386</span>
+<span class="n">Ground</span> <span class="n">State</span> <span class="n">Energy</span><span class="p">:</span> <span class="mf">14.701062940689484</span> <span class="o">..</span> <span class="n">Change</span><span class="p">:</span> <span class="mf">0.11903554569129504</span>
+<span class="n">Ground</span> <span class="n">State</span> <span class="n">Energy</span><span class="p">:</span> <span class="mf">14.773528046467316</span> <span class="o">..</span> <span class="n">Change</span><span class="p">:</span> <span class="mf">0.07246510577783205</span>
+<span class="n">Ground</span> <span class="n">State</span> <span class="n">Energy</span><span class="p">:</span> <span class="mf">14.729396772844979</span> <span class="o">..</span> <span class="n">Change</span><span class="p">:</span> <span class="mf">0.044131273622337375</span>
+<span class="n">Ground</span> <span class="n">State</span> <span class="n">Energy</span><span class="p">:</span> <span class="mf">14.756291444171477</span> <span class="o">..</span> <span class="n">Change</span><span class="p">:</span> <span class="mf">0.02689467132649881</span>
+<span class="n">Ground</span> <span class="n">State</span> <span class="n">Energy</span><span class="p">:</span> <span class="mf">14.739899203648717</span> <span class="o">..</span> <span class="n">Change</span><span class="p">:</span> <span class="mf">0.01639224052276056</span>
+<span class="n">Ground</span> <span class="n">State</span> <span class="n">Energy</span><span class="p">:</span> <span class="mf">14.749892601933313</span> <span class="o">..</span> <span class="n">Change</span><span class="p">:</span> <span class="mf">0.009993398284596111</span>
+<span class="n">Ground</span> <span class="n">State</span> <span class="n">Energy</span><span class="p">:</span> <span class="mf">14.743800001840365</span> <span class="o">..</span> <span class="n">Change</span><span class="p">:</span> <span class="mf">0.00609260009294843</span>
+<span class="n">Ground</span> <span class="n">State</span> <span class="n">Energy</span><span class="p">:</span> <span class="mf">14.747514729729723</span> <span class="o">..</span> <span class="n">Change</span><span class="p">:</span> <span class="mf">0.003714727889358116</span>
+<span class="n">Ground</span> <span class="n">State</span> <span class="n">Energy</span><span class="p">:</span> <span class="mf">14.745249799055264</span> <span class="o">..</span> <span class="n">Change</span><span class="p">:</span> <span class="mf">0.002264930674458654</span>
+<span class="n">Ground</span> <span class="n">State</span> <span class="n">Energy</span><span class="p">:</span> <span class="mf">14.746630802141052</span> <span class="o">..</span> <span class="n">Change</span><span class="p">:</span> <span class="mf">0.001381003085787924</span>
+<span class="n">Ground</span> <span class="n">State</span> <span class="n">Energy</span><span class="p">:</span> <span class="mf">14.745788757575497</span> <span class="o">..</span> <span class="n">Change</span><span class="p">:</span> <span class="mf">0.0008420445655552555</span>
+<span class="n">Ground</span> <span class="n">State</span> <span class="n">Energy</span><span class="p">:</span> <span class="mf">14.746302185556894</span> <span class="o">..</span> <span class="n">Change</span><span class="p">:</span> <span class="mf">0.0005134279813976406</span>
+<span class="n">Ground</span> <span class="n">State</span> <span class="n">Energy</span><span class="p">:</span> <span class="mf">14.745989128109859</span> <span class="o">..</span> <span class="n">Change</span><span class="p">:</span> <span class="mf">0.00031305744703580274</span>
+<span class="n">Ground</span> <span class="n">State</span> <span class="n">Energy</span><span class="p">:</span> <span class="mf">14.746180012284182</span> <span class="o">..</span> <span class="n">Change</span><span class="p">:</span> <span class="mf">0.00019088417432300275</span>
+<span class="n">Ground</span> <span class="n">State</span> <span class="n">Energy</span><span class="p">:</span> <span class="mf">14.746063622259712</span> <span class="o">..</span> <span class="n">Change</span><span class="p">:</span> <span class="mf">0.00011639002446983682</span>
+<span class="n">Ground</span> <span class="n">State</span> <span class="n">Energy</span><span class="p">:</span> <span class="mf">14.746134590178523</span> <span class="o">..</span> <span class="n">Change</span><span class="p">:</span> <span class="mf">7.096791881089359e-05</span>
+<span class="n">Ground</span> <span class="n">State</span> <span class="n">Energy</span><span class="p">:</span> <span class="mf">14.746091318041849</span> <span class="o">..</span> <span class="n">Change</span><span class="p">:</span> <span class="mf">4.3272136673877526e-05</span>
+<span class="n">Ground</span> <span class="n">State</span> <span class="n">Energy</span><span class="p">:</span> <span class="mf">14.746117702900854</span> <span class="o">..</span> <span class="n">Change</span><span class="p">:</span> <span class="mf">2.638485900519072e-05</span>
+<span class="n">Ground</span> <span class="n">State</span> <span class="n">Energy</span><span class="p">:</span> <span class="mf">14.746101614932831</span> <span class="o">..</span> <span class="n">Change</span><span class="p">:</span> <span class="mf">1.6087968022659993e-05</span>
+<span class="n">Ground</span> <span class="n">State</span> <span class="n">Energy</span><span class="p">:</span> <span class="mf">14.746111424450689</span> <span class="o">..</span> <span class="n">Change</span><span class="p">:</span> <span class="mf">9.8095178575619e-06</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">matplotlib</span><span class="o">.</span><span class="n">legend</span><span class="o">.</span><span class="n">Legend</span> <span class="n">at</span> <span class="mh">0x7fcc1f998f60</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<img alt="../_images/output_19_2.webp" src="../_images/output_19_2.webp" />
+</section>
+<section id="wrap-up">
+<h2>Wrap up<a class="headerlink" href="#wrap-up" title="Link to this heading"></a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">Integrate</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">axis</span> <span class="o">=</span> <span class="mi">0</span><span class="p">):</span>
+  <span class="n">dx</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+  <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">y</span><span class="o">*</span><span class="n">dx</span><span class="p">,</span> <span class="n">axis</span> <span class="o">=</span> <span class="n">axis</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">GetDensity</span><span class="p">(</span><span class="n">N_total</span><span class="p">,</span> <span class="n">psi</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+  <span class="n">I</span> <span class="o">=</span> <span class="n">Integrate</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">psi</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+  <span class="n">normalized_psi</span> <span class="o">=</span> <span class="n">psi</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">I</span><span class="p">)[</span><span class="kc">None</span><span class="p">,:]</span>
+
+  <span class="n">N_k</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N_total</span><span class="o">//</span><span class="mi">2</span><span class="p">)]</span>
+  <span class="k">if</span> <span class="n">N_total</span> <span class="o">%</span> <span class="mi">2</span><span class="p">:</span>
+    <span class="n">N_k</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+  <span class="n">n</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">normalized_psi</span><span class="p">[:,</span><span class="mi">0</span><span class="p">])</span>
+  <span class="k">for</span> <span class="n">N_k_</span><span class="p">,</span> <span class="n">psi</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">N_k</span><span class="p">,</span> <span class="n">normalized_psi</span><span class="o">.</span><span class="n">T</span><span class="p">):</span>
+    <span class="n">n</span> <span class="o">+=</span> <span class="n">N_k_</span> <span class="o">*</span> <span class="p">(</span><span class="n">psi</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+  <span class="k">return</span> <span class="n">n</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">GetExchange</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">x</span><span class="p">):</span>
+  <span class="n">ExchangeEnergy</span> <span class="o">=</span> <span class="o">-</span><span class="mi">3</span><span class="o">/</span><span class="mi">4</span> <span class="o">*</span> <span class="p">(</span><span class="mi">3</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span> <span class="o">*</span> <span class="n">Integrate</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">n</span><span class="o">**</span><span class="p">(</span><span class="mi">4</span><span class="o">/</span><span class="mi">3</span><span class="p">))</span>
+  <span class="n">ExchangePotential</span> <span class="o">=</span> <span class="o">-</span> <span class="p">(</span><span class="mi">3</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span> <span class="o">*</span> <span class="n">n</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span>
+  <span class="k">return</span> <span class="n">ExchangeEnergy</span><span class="p">,</span> <span class="n">ExchangePotential</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">GetHartree</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">epsilon</span><span class="o">=</span><span class="mf">1e-1</span><span class="p">):</span>
+  <span class="n">dx</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+  <span class="n">HartreeEnergy</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">n</span><span class="p">[</span><span class="kc">None</span><span class="p">,:]</span><span class="o">*</span><span class="n">n</span><span class="p">[:,</span><span class="kc">None</span><span class="p">]</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="n">x</span><span class="p">[</span><span class="kc">None</span><span class="p">,:]</span><span class="o">-</span><span class="n">x</span><span class="p">[:,</span><span class="kc">None</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">epsilon</span><span class="p">)</span><span class="o">*</span><span class="n">dx</span><span class="o">*</span><span class="n">dx</span><span class="p">)</span>
+  <span class="n">HartreePotential</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">n</span><span class="p">[</span><span class="kc">None</span><span class="p">,:]</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="n">x</span><span class="p">[</span><span class="kc">None</span><span class="p">,:]</span><span class="o">-</span><span class="n">x</span><span class="p">[:,</span><span class="kc">None</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">epsilon</span><span class="p">)</span><span class="o">*</span><span class="n">dx</span><span class="p">,</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+  <span class="k">return</span> <span class="n">HartreeEnergy</span><span class="p">,</span> <span class="n">HartreePotential</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">SimpleDFT</span><span class="p">:</span>
+  <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">N_total</span><span class="o">=</span><span class="mi">17</span><span class="p">,</span> <span class="n">x_begin</span><span class="o">=-</span><span class="mi">5</span><span class="p">,</span> <span class="n">x_end</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">n_grid</span> <span class="o">=</span> <span class="mi">200</span><span class="p">,</span>
+              <span class="n">hbar</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">m</span> <span class="o">=</span> <span class="mi">1</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">n_grid</span> <span class="o">=</span> <span class="n">n_grid</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">N_total</span> <span class="o">=</span> <span class="n">N_total</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">x_begin</span><span class="p">,</span><span class="n">x_end</span><span class="p">,</span><span class="n">n_grid</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">dx</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">D</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diagflat</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">n_grid</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">n_grid</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">D</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">D</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">dx</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">D2</span> <span class="o">=</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">D</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">D</span><span class="o">.</span><span class="n">T</span> <span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">D2</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">D2</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="c1">#The derivative may not be well defined at the end of the grid</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">H_FreeParticle</span> <span class="o">=</span> <span class="o">-</span> <span class="p">(</span><span class="n">hbar</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">m</span><span class="p">))</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">D2</span>
+
+  <span class="k">def</span><span class="w"> </span><span class="nf">FreeParticle</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="n">Potential</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">Solve</span><span class="p">(</span><span class="s2">&quot;FreeParticle&quot;</span><span class="p">,</span><span class="n">Potential</span><span class="p">)</span>
+
+  <span class="k">def</span><span class="w"> </span><span class="nf">HarmonicPotential</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">k</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+    <span class="n">Potential</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diagflat</span><span class="p">(</span><span class="n">k</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">Solve</span><span class="p">(</span><span class="s2">&quot;Harmonic Potential&quot;</span><span class="p">,</span> <span class="n">Potential</span><span class="p">)</span>
+
+  <span class="k">def</span><span class="w"> </span><span class="nf">PotentialWell</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span><span class="n">center</span> <span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+    <span class="n">Potential</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">full_like</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="p">,</span><span class="mf">1e10</span><span class="p">)</span>
+    <span class="n">Potential</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">logical_and</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="o">&gt;</span> <span class="n">center</span><span class="o">-</span><span class="n">width</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="o">&lt;</span> <span class="n">center</span><span class="o">+</span><span class="n">width</span><span class="o">/</span><span class="mi">2</span><span class="p">)]</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">Potential</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diagflat</span><span class="p">(</span><span class="n">Potential</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">Solve</span><span class="p">(</span><span class="s2">&quot;Potential Well&quot;</span><span class="p">,</span> <span class="n">Potential</span><span class="p">)</span>
+
+  <span class="k">def</span><span class="w"> </span><span class="nf">Solve</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">PotentialName</span><span class="p">,</span> <span class="n">Potential</span><span class="p">):</span>
+    <span class="n">_</span><span class="p">,</span><span class="n">_</span><span class="p">,</span><span class="n">n_NoInt</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">SolveSingleParticle</span><span class="p">(</span>  <span class="n">PotentialName</span><span class="p">,</span> <span class="n">Potential</span><span class="p">)</span>
+    <span class="n">_</span><span class="p">,</span><span class="n">_</span><span class="p">,</span><span class="n">n_DFT</span>   <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">SolveManyParticle</span><span class="p">(</span> <span class="n">PotentialName</span><span class="p">,</span> <span class="n">Potential</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Density: &quot;</span><span class="o">+</span><span class="n">PotentialName</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">n_NoInt</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;n_NoInt&quot;</span><span class="p">),</span> <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">n_DFT</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;n_DFT&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(),</span> <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+  <span class="k">def</span><span class="w"> </span><span class="nf">SolveSingleParticle</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">PotentialName</span><span class="p">,</span> <span class="n">Potential</span><span class="p">):</span>
+    <span class="n">H</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">H_FreeParticle</span> <span class="o">+</span> <span class="n">Potential</span>
+    <span class="n">EigenValue</span><span class="p">,</span> <span class="n">EigenVector</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">eigh</span><span class="p">(</span><span class="n">H</span><span class="p">)</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">GetDensity</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">N_total</span><span class="p">,</span> <span class="n">EigenVector</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;SingleParticle: &quot;</span><span class="o">+</span><span class="n">PotentialName</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+      <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="p">,</span><span class="n">EigenVector</span><span class="p">[:,</span><span class="n">i</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;EigenValue: </span><span class="si">{</span><span class="n">EigenValue</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(),</span> <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">EigenValue</span><span class="p">,</span> <span class="n">EigenVector</span><span class="p">,</span> <span class="n">n</span>
+
+  <span class="k">def</span><span class="w"> </span><span class="nf">SolveManyParticle</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">PotentialName</span><span class="p">,</span> <span class="n">Potential</span><span class="p">):</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n_grid</span><span class="p">)</span>
+    <span class="n">LastEnergy</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="s2">&quot;inf&quot;</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1000</span><span class="p">):</span>
+      <span class="n">ExchangeEnergy</span><span class="p">,</span> <span class="n">ExchangePotential</span> <span class="o">=</span> <span class="n">GetExchange</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="p">)</span>
+      <span class="n">HartreeEnergy</span><span class="p">,</span> <span class="n">HartreePotential</span> <span class="o">=</span> <span class="n">GetHartree</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="p">)</span>
+      <span class="n">H</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">H_FreeParticle</span> <span class="o">+</span> <span class="n">Potential</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">diagflat</span><span class="p">(</span><span class="n">ExchangePotential</span><span class="o">+</span><span class="n">HartreePotential</span><span class="p">)</span>
+      <span class="n">EigenValue</span><span class="p">,</span> <span class="n">EigenVector</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">eigh</span><span class="p">(</span><span class="n">H</span><span class="p">)</span>
+      <span class="n">change</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">EigenValue</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="n">LastEnergy</span><span class="p">)</span>
+      <span class="n">LastEnergy</span> <span class="o">=</span> <span class="n">EigenValue</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+      <span class="c1">#print(&quot;Ground State Energy:&quot;,EigenValue[0],&quot;.. Change:&quot;,change)</span>
+      <span class="k">if</span> <span class="n">change</span> <span class="o">&lt;</span> <span class="mf">1e-5</span><span class="p">:</span>
+        <span class="k">break</span>
+      <span class="n">n</span> <span class="o">=</span> <span class="n">GetDensity</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">N_total</span><span class="p">,</span> <span class="n">EigenVector</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;ManyParticle: &quot;</span><span class="o">+</span><span class="n">PotentialName</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+      <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="p">,</span><span class="n">EigenVector</span><span class="p">[:,</span><span class="n">i</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;EigenValue: </span><span class="si">{</span><span class="n">EigenValue</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(),</span> <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">EigenValue</span><span class="p">,</span> <span class="n">EigenVector</span><span class="p">,</span> <span class="n">n</span>
+
+<span class="c1"># usage</span>
+<span class="n">SimpleDFT_1</span> <span class="o">=</span> <span class="n">SimpleDFT</span><span class="p">()</span>
+<span class="n">SimpleDFT_1</span><span class="o">.</span><span class="n">FreeParticle</span><span class="p">()</span>
+<span class="n">SimpleDFT_1</span><span class="o">.</span><span class="n">HarmonicPotential</span><span class="p">()</span>
+<span class="n">SimpleDFT_1</span><span class="o">.</span><span class="n">PotentialWell</span><span class="p">()</span>
+</pre></div>
+</div>
+<img alt="../_images/output_21_0.webp" src="../_images/output_21_0.webp" />
+<img alt="../_images/output_21_1.webp" src="../_images/output_21_1.webp" />
+<img alt="../_images/output_21_2.webp" src="../_images/output_21_2.webp" />
+<img alt="../_images/output_21_3.webp" src="../_images/output_21_3.webp" />
+<img alt="../_images/output_21_4.webp" src="../_images/output_21_4.webp" />
+<img alt="../_images/output_21_5.webp" src="../_images/output_21_5.webp" />
+<img alt="../_images/output_21_6.webp" src="../_images/output_21_6.webp" />
+<img alt="../_images/output_21_7.webp" src="../_images/output_21_7.webp" />
+<img alt="../_images/output_21_8.webp" src="../_images/output_21_8.webp" />
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Density-Matrix.html" class="btn btn-neutral float-left" title="Density Matrix" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="CODE-1D-DPFT.html" class="btn btn-neutral float-right" title="CODE 1D DPFT" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, RickyDing1997.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

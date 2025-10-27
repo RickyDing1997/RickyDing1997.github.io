@@ -1,0 +1,1919 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://rickyding1997.github.io/Study-Notes-2025/NeuroAI/Neuromatch_course.html">
+      
+      
+        <link rel="prev" href="2017_NeuroAI_2.html">
+      
+      
+        <link rel="next" href="../trading/options.html">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.15">
+    
+    
+      
+        <title>Neuromatch course - Ricky's Study Notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.342714a4.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../css/main.css">
+    
+      <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#111-generalization-in-ai" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../index.html" title="Ricky&#39;s Study Notes" class="md-header__button md-logo" aria-label="Ricky's Study Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Ricky's Study Notes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Neuromatch course
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../index.html" title="Ricky&#39;s Study Notes" class="md-nav__button md-logo" aria-label="Ricky's Study Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Ricky's Study Notes
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DeepSeek.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    DeepSeek
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../RL.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    RL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    NeuroAI
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            NeuroAI
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="2017_NeuroAI_1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2017 NeuroAI 1
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="2017_NeuroAI_2.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2017 NeuroAI 2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Neuromatch course
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="Neuromatch_course.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Neuromatch course
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#111-generalization-in-ai" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1.1: Generalization in AI
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#112-generalization-in-neuroscience" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1.2: Generalization in Neuroscience
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#113-generalization-in-cognitive-science" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1.3: Generalization in Cognitive Science
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#121-task-definition-application-relations-and-impacts-on-generalization" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2.1: Task definition, application, relations and impacts on generalization
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.2.1: Task definition, application, relations and impacts on generalization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#classification-cross-entropy-loss" class="md-nav__link">
+    <span class="md-ellipsis">
+      classification: cross-entropy loss
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#regression-mse-loss" class="md-nav__link">
+    <span class="md-ellipsis">
+      regression: MSE loss
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#auto-encoding-mse-loss" class="md-nav__link">
+    <span class="md-ellipsis">
+      auto-encoding: MSE loss
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inpainting-mse-loss" class="md-nav__link">
+    <span class="md-ellipsis">
+      inpainting: MSE loss
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#122-contrastive-learning-for-object-recognition" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2.2: Contrastive learning for object recognition
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#123-reinforcement-learning-across-temporal-scales" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2.3: Reinforcement learning across temporal scales
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#131-generalization-and-representational-geometry" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.3.1: Generalization and representational geometry
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#132-computation-as-transformation-of-representational-geometries" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.3.2: Computation as transformation of representational geometries
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#133-statistical-inference-on-representational-geometries" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.3.3: Statistical inference on representational geometries
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#134-representational-geometry-noise" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.3.4: Representational geometry &amp; noise
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#151-sparsity-and-sparse-coding-regularization" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.5.1: Sparsity and Sparse Coding (regularization)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#152-normalization" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.5.2: Normalization
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#153-attention" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.5.3: Attention
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#211-depth-vs-width" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1.1: Depth vs width
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#212-double-descent-grokking" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1.2!!!: Double descent (Grokking)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.1.2!!!: Double descent (Grokking)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#2022-grokking" class="md-nav__link">
+    <span class="md-ellipsis">
+      2022 Grokking
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#213-neural-network-modularity" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1.3: Neural network modularity
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#221-basic-operations-of-vector-symbolic-algebra" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2.1: Basic operations of vector symbolic algebra
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#222-learning-with-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2.2: Learning with structure
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#223-representations-in-continuous-space" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2.3: Representations in continuous space
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#231-microlearning-local" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3.1!!!: Microlearning (local)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#241-the-problem-of-changing-data-distributions" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4.1: The problem of changing data distributions
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#242-continual-learning" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4.2: Continual learning
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#243-meta-learning" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4.3: Meta-learning
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.4.3: Meta-learning">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#2017-model-agnostic-meta-learning-maml" class="md-nav__link">
+    <span class="md-ellipsis">
+      2017 Model-Agnostic Meta-Learning (MAML)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#244-biological-meta-reinforcement-learning" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4.4: Biological meta reinforcement learning
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.4.4: Biological meta reinforcement learning">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#advantage-actor-critic-a2c" class="md-nav__link">
+    <span class="md-ellipsis">
+      Advantage Actor Critic (A2C)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#baldwin-effect-meta-learning" class="md-nav__link">
+    <span class="md-ellipsis">
+      Baldwin effect: meta-learning
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2018-prefrontal-cortex-meta-rl" class="md-nav__link">
+    <span class="md-ellipsis">
+      2018 Prefrontal cortex meta-RL
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#245-replay-buffer" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4.5: Replay Buffer
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#251-consciousness" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.5.1: Consciousness
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.5.1: Consciousness">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#2020-recurrent-independent-mechanisms-rim-modularity" class="md-nav__link">
+    <span class="md-ellipsis">
+      2020 Recurrent Independent Mechanisms (RIM): modularity
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2022-global-workspace-theory-gwt-coordination" class="md-nav__link">
+    <span class="md-ellipsis">
+      2022 Global Workspace Theory (GWT): coordination
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#second-order-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      Second order model
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#higher-order-state-space-hoss-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      Higher Order State Space (HOSS) model
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#252-ethics" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.5.2: Ethics
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Trading
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Trading
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../trading/options.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Options
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#111-generalization-in-ai" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1.1: Generalization in AI
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#112-generalization-in-neuroscience" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1.2: Generalization in Neuroscience
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#113-generalization-in-cognitive-science" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1.3: Generalization in Cognitive Science
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#121-task-definition-application-relations-and-impacts-on-generalization" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2.1: Task definition, application, relations and impacts on generalization
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.2.1: Task definition, application, relations and impacts on generalization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#classification-cross-entropy-loss" class="md-nav__link">
+    <span class="md-ellipsis">
+      classification: cross-entropy loss
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#regression-mse-loss" class="md-nav__link">
+    <span class="md-ellipsis">
+      regression: MSE loss
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#auto-encoding-mse-loss" class="md-nav__link">
+    <span class="md-ellipsis">
+      auto-encoding: MSE loss
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inpainting-mse-loss" class="md-nav__link">
+    <span class="md-ellipsis">
+      inpainting: MSE loss
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#122-contrastive-learning-for-object-recognition" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2.2: Contrastive learning for object recognition
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#123-reinforcement-learning-across-temporal-scales" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2.3: Reinforcement learning across temporal scales
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#131-generalization-and-representational-geometry" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.3.1: Generalization and representational geometry
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#132-computation-as-transformation-of-representational-geometries" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.3.2: Computation as transformation of representational geometries
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#133-statistical-inference-on-representational-geometries" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.3.3: Statistical inference on representational geometries
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#134-representational-geometry-noise" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.3.4: Representational geometry &amp; noise
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#151-sparsity-and-sparse-coding-regularization" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.5.1: Sparsity and Sparse Coding (regularization)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#152-normalization" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.5.2: Normalization
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#153-attention" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.5.3: Attention
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#211-depth-vs-width" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1.1: Depth vs width
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#212-double-descent-grokking" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1.2!!!: Double descent (Grokking)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.1.2!!!: Double descent (Grokking)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#2022-grokking" class="md-nav__link">
+    <span class="md-ellipsis">
+      2022 Grokking
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#213-neural-network-modularity" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1.3: Neural network modularity
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#221-basic-operations-of-vector-symbolic-algebra" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2.1: Basic operations of vector symbolic algebra
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#222-learning-with-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2.2: Learning with structure
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#223-representations-in-continuous-space" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2.3: Representations in continuous space
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#231-microlearning-local" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3.1!!!: Microlearning (local)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#241-the-problem-of-changing-data-distributions" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4.1: The problem of changing data distributions
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#242-continual-learning" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4.2: Continual learning
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#243-meta-learning" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4.3: Meta-learning
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.4.3: Meta-learning">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#2017-model-agnostic-meta-learning-maml" class="md-nav__link">
+    <span class="md-ellipsis">
+      2017 Model-Agnostic Meta-Learning (MAML)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#244-biological-meta-reinforcement-learning" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4.4: Biological meta reinforcement learning
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.4.4: Biological meta reinforcement learning">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#advantage-actor-critic-a2c" class="md-nav__link">
+    <span class="md-ellipsis">
+      Advantage Actor Critic (A2C)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#baldwin-effect-meta-learning" class="md-nav__link">
+    <span class="md-ellipsis">
+      Baldwin effect: meta-learning
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2018-prefrontal-cortex-meta-rl" class="md-nav__link">
+    <span class="md-ellipsis">
+      2018 Prefrontal cortex meta-RL
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#245-replay-buffer" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4.5: Replay Buffer
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#251-consciousness" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.5.1: Consciousness
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.5.1: Consciousness">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#2020-recurrent-independent-mechanisms-rim-modularity" class="md-nav__link">
+    <span class="md-ellipsis">
+      2020 Recurrent Independent Mechanisms (RIM): modularity
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2022-global-workspace-theory-gwt-coordination" class="md-nav__link">
+    <span class="md-ellipsis">
+      2022 Global Workspace Theory (GWT): coordination
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#second-order-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      Second order model
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#higher-order-state-space-hoss-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      Higher Order State Space (HOSS) model
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#252-ethics" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.5.2: Ethics
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>Neuromatch course</h1>
+
+<ul>
+<li>Notes for <a href="https://neuroai.neuromatch.io">NeuroAI course by Neuromatch Academy</a></li>
+</ul>
+<h2 id="111-generalization-in-ai">1.1.1: Generalization in AI</h2>
+<ul>
+<li>TrOCR: Transformer-based OCR model</li>
+<li>some strategies for better generalization: Transfer learning, Augmentations, Synthetic examples</li>
+</ul>
+<h2 id="112-generalization-in-neuroscience">1.1.2: Generalization in Neuroscience</h2>
+<ul>
+<li>use RNN to mimic the brain and generate muscle control sequence<ul>
+<li>weight regularization (L2) and firing rate regularization for generalization</li>
+</ul>
+</li>
+</ul>
+<div class="arithmatex">\[
+\tau { dh \over dt } = -h + W_1 x + W_2 |\tanh(h)| + b
+\]</div>
+<ul>
+<li><span class="arithmatex">\(h\)</span>: hidden state, <span class="arithmatex">\(x\)</span>: input</li>
+</ul>
+<p><img alt="" src="../imgs/na_brain_RNN.png" /></p>
+<h2 id="113-generalization-in-cognitive-science">1.1.3: Generalization in Cognitive Science</h2>
+<ul>
+<li>
+<p><a href="https://arxiv.org/pdf/2006.14448">2020, Learning Task-General Representations with Generative Neuro-Symbolic Modeling</a></p>
+<ul>
+<li>Humans display one-shot learning on Omniglot, a character recognition task. This requires extensive generalization.</li>
+<li>A generative neuro-symbolic model with strong inductive biases exhibits human-level performance on Omniglot.</li>
+</ul>
+</li>
+<li>
+<p>Sample complexity: minimum number of examples needed to reach a specific performance with some probability</p>
+</li>
+</ul>
+<hr />
+<h2 id="121-task-definition-application-relations-and-impacts-on-generalization">1.2.1: Task definition, application, relations and impacts on generalization</h2>
+<h3 id="classification-cross-entropy-loss">classification: cross-entropy loss</h3>
+<div class="arithmatex">\[
+L = - {1\over N} \sum_i^N \log( { \exp(z_{i, k}) \over \sum_c \exp( z_{i, c} ) } ) \\
+z_{i, c}: \text{ logits } \\
+k: \text{ true class for sample } i
+\]</div>
+<h3 id="regression-mse-loss">regression: MSE loss</h3>
+<div class="arithmatex">\[
+L = {1\over N} \sum_i^N ( y_i - \hat{y}_i )^2
+\]</div>
+<h3 id="auto-encoding-mse-loss">auto-encoding: MSE loss</h3>
+<ul>
+<li>MSE loss between the <strong>original and reconstructed</strong> inputs</li>
+<li>auto-encoder consists of: an encoder, a bottleneck layer, and a decoder</li>
+<li>compresses the input into a smaller representation, the bottleneck layer holds this compressed representation, and the decoder reconstructs the original image from this representation</li>
+</ul>
+<h3 id="inpainting-mse-loss">inpainting: MSE loss</h3>
+<ul>
+<li>an <strong>auto-encoder</strong> that can fill in missing parts of an image</li>
+</ul>
+<h2 id="122-contrastive-learning-for-object-recognition">1.2.2: Contrastive learning for object recognition</h2>
+<ul>
+<li>
+<p>contrastive learning (self-supervised)</p>
+<ul>
+<li>works well in situations where <strong>the number of classes is large or undefined</strong></li>
+<li>learns to distinguish between 'similar' and 'dissimilar' directly through embeddings</li>
+<li>example: identify faces among billions of possibilities</li>
+</ul>
+</li>
+<li>
+<p>Residual networks: </p>
+<ul>
+<li>easier to optimize: allows for a passageway for gradients to flow down during backprop</li>
+</ul>
+</li>
+<li>
+<p>Noise-Contrastive Estimation with Information (InfoNCE) loss function</p>
+</li>
+</ul>
+<div class="arithmatex">\[
+L = - E \left[
+    \log { f(x^+) \over f(x^+) + \sum_{x^-} f(x^-) }
+\right] \\[5pt]
+f(x') := \exp( s(x, x') / \tau )
+\]</div>
+<ul>
+<li>$ x $: anchor data point (an input sample)</li>
+<li>$ x^+ $: transformed / augmented version of $ x $ (similar)</li>
+<li>$ x^- $: randomly sampled from dataset (dissimilar)</li>
+<li>$ s(x, x') $: some similarity function between <strong>embeddings</strong> of $ x $ and $ x' $</li>
+<li>$ \tau $: temperature</li>
+</ul>
+<h2 id="123-reinforcement-learning-across-temporal-scales">1.2.3: Reinforcement learning across temporal scales</h2>
+<ul>
+<li>refer to <a href="#2018-prefrontal-cortex-meta-rl">2018 Prefrontal cortex meta-RL</a></li>
+</ul>
+<hr />
+<h2 id="131-generalization-and-representational-geometry">1.3.1: Generalization and representational geometry</h2>
+<ul>
+<li>
+<p>Adversarial data: attacker-designed data that cause models to make mistakes, but indistinguishable by humans</p>
+<ul>
+<li>Fast Gradient Sign Method (FGSM, Ian Goodfellow, 2014): backprops through the NN to create perturbed inputs that maximize the loss. $ x' = x + \epsilon \cdot \text{sign}(\nabla_x L) $</li>
+</ul>
+</li>
+<li>
+<p>Representational Dissimilarity Matrices (RDM) </p>
+<ul>
+<li>$ M_{ij} = 1 - r(h_i, h_j)$, $ r $ is Pearson correlation</li>
+<li>measures how dissimilar the response patterns in <strong>some layer</strong> of a NN are to the $ i $-th and $ j $-th input</li>
+<li>measure of <strong>generalization</strong></li>
+</ul>
+</li>
+</ul>
+<p><img alt="" src="../imgs/na_RDM.png" /></p>
+<h2 id="132-computation-as-transformation-of-representational-geometries">1.3.2: Computation as transformation of representational geometries</h2>
+<ul>
+<li>Dimensionality reduction<ul>
+<li>PCA (Principal Component Analysis)</li>
+<li>MDS (Multi-Dimensional Scaling)</li>
+<li>t-SNE (t-distributed Stochastic Neighbor Embedding)</li>
+</ul>
+</li>
+</ul>
+<p><img alt="" src="../imgs/na_PCA_MDS_SNE.png" /></p>
+<ul>
+<li>Representational path: from comparing representations to comparing RDMs<ol>
+<li>calculate RDMs based on the Euclidean distances between the representations of inputs (for each layer): $ M(\text{layer}_k, x_i, x_j) $</li>
+<li>reshape: <span class="arithmatex">\(K, I, J \rightarrow K, I\times J\)</span>, then calculate the cosine similarity between different rows of this new matrix. By taking the <code>arccos</code> of this measure, we obtain a proper distance between representational geometries of different layers. <strong>an RDM matrix of the RDM matrices</strong>!</li>
+<li>visualize the path: embed the distances between the geometries in a lower dimensional space. use <code>MDS</code> to reduce the dimensions to 2</li>
+</ol>
+</li>
+</ul>
+<p><img alt="" src="../imgs/na_Rep_path.png" /></p>
+<h2 id="133-statistical-inference-on-representational-geometries">1.3.3: Statistical inference on representational geometries</h2>
+<ul>
+<li>
+<p>Representational Similarity Analysis (RSA)</p>
+<ul>
+<li>Uses <a href="https://github.com/rsagroup/rsatoolbox">rsatoolbox</a> to compute <code>Representational Dissimilarity Matrices (RDM)</code>, which capture pairwise dissimilarities in neural (fMRI) or model (AlexNet) responses to stimuli</li>
+<li>Compares fMRI RDMs with AlexNet RDMs by calculating the <code>correlation coefficient</code></li>
+</ul>
+</li>
+<li>
+<p><a href="https://en.wikipedia.org/wiki/Bootstrapping_(statistics)">Bootstrapping (resampling)</a></p>
+</li>
+</ul>
+<p><img alt="" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Illustration_bootstrap.svg/960px-Illustration_bootstrap.svg.png" /></p>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=pTmLQvMM-1M">Student's t-test</a></li>
+</ul>
+<h2 id="134-representational-geometry-noise">1.3.4: Representational geometry &amp; noise</h2>
+<ul>
+<li>
+<p>Goal: to develop more accurate and robust classification models</p>
+</li>
+<li>
+<p>Euclidean vs Mahalanobis distance</p>
+<ul>
+<li>Mahalanobis takes into account the noise covariances between neurons</li>
+<li>Euclidean assumes isotropic noise</li>
+</ul>
+</li>
+</ul>
+<div class="arithmatex">\[
+d_E^2 = (x - y)(x - y)^T \\
+d_M^2 = (x - y) \Sigma^{-1} (x - y)^T \\
+\Sigma \text{: covariance matrix of the data}
+\]</div>
+<ul>
+<li>discriminability between stimulus pairs<ul>
+<li>If we assume noise is <code>i.i.d</code> across neurons (<code>isotropic</code>) and i.i.d across stimuli (homoscedastic), then Euclidean distance (in response space) defines discriminability between a pair of stimuli</li>
+<li>If we assume noise is <code>correlated</code> across neurons (<code>non-isotropic</code>) and i.i.d across stimuli (homoscedastic), then Mahalanobis defines discriminability</li>
+</ul>
+</li>
+<li>
+<p>Linear Discriminant Analysis</p>
+<ul>
+<li>For example, in a two-class problem, LDA finds a line (or hyperplane in higher dimensions) that best distinguishes the classes</li>
+</ul>
+</li>
+<li>
+<p>Cross-validated (train-test split) distance estimators can remove the positive bias introduced by noise</p>
+</li>
+</ul>
+<div class="arithmatex">\[
+d_E^2 = (x - y)_{\text{train}}(x - y)_{\text{test}}^T \\
+d_M^2 = (x - y)_{\text{train}} \Sigma_{\text{train}}^{-1} (x - y)_{\text{test}}^T
+\]</div>
+<ul>
+<li>Johnson–Lindenstrauss lemma: <ul>
+<li>states that a set of points in a high-dimensional space can be projected into a lower-dimensional space using a random linear projection (e.g., a random matrix) while approximately preserving the Euclidean distances between the points.</li>
+<li>shows that random projections preserve the Euclidean distance with some distortions. Crucially, the distortion does not depend on the dimensionality of the original space</li>
+<li>crucial for reducing dimensionality while preserving the relational structure of data</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2 id="151-sparsity-and-sparse-coding-regularization">1.5.1: Sparsity and Sparse Coding (regularization)</h2>
+<ul>
+<li>kurtosis: one of the main metrics used to measure sparsity</li>
+</ul>
+<div class="language-py highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.decomposition</span><span class="w"> </span><span class="kn">import</span> <span class="n">DictionaryLearning</span><span class="p">,</span> <span class="n">PCA</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.linear_model</span><span class="w"> </span><span class="kn">import</span> <span class="n">OrthogonalMatchingPursuit</span>
+</span></code></pre></div>
+<ul>
+<li>
+<p>Dictionary Learning: decompose complex data into simpler components, akin to how the visual system breaks down images into edges and textures etc.</p>
+</li>
+<li>
+<p>Orthogonal Matching Pursuit (OMP) algorithm: achieves "sparse coding" by deriving fundamental units (basis) that constitute complex signals</p>
+</li>
+</ul>
+<h2 id="152-normalization">1.5.2: Normalization</h2>
+<ul>
+<li>by adding a normalization layer<ul>
+<li>the training process converges quicker</li>
+<li>achieve better test accuracy and generalization in image recognition</li>
+</ul>
+</li>
+</ul>
+<h2 id="153-attention">1.5.3: Attention</h2>
+<p><img alt="" src="../imgs/2017_Attention.png" /></p>
+<hr />
+<h2 id="211-depth-vs-width">2.1.1: Depth vs width</h2>
+<h2 id="212-double-descent-grokking">2.1.2!!!: Double descent (Grokking)</h2>
+<ul>
+<li>
+<p><a href="https://en.wikipedia.org/wiki/Double_descent">Double Descent</a>:</p>
+<ul>
+<li>the situation when the over-parameterized network was expected to behave as over-fitted but instead generalized better to the unseen data. </li>
+<li>Moreover, we discovered how noise, regularization &amp; initial scale impact the effect of double descent and, in some cases, can fully cancel it.</li>
+<li>Combining with the findings on sparse connections and activity, brain architecture suggests it might operate in over parameterized regime, which enables the interpolation of vast amounts of sensory and experiential data smoothly, leading to effective generalization.</li>
+</ul>
+</li>
+<li>
+<p><a href="https://en.wikipedia.org/wiki/Grokking_(machine_learning)">Grokking</a></p>
+</li>
+</ul>
+<h3 id="2022-grokking"><code>2022</code> <a href="https://arxiv.org/pdf/1703.03400">Grokking</a></h3>
+<ul>
+<li>OpenAI</li>
+</ul>
+<h2 id="213-neural-network-modularity">2.1.3: Neural network modularity</h2>
+<ul>
+<li>modular architecture with separate modules for learning different aspects of behavior, is superior to a holistic architecture with a single module. The modular architecture with stronger inductive bias achieves good performance faster and has the capability to generalize to other tasks as well. this modularity is a property we also observe in the brains.</li>
+<li>env: spatial navigation task</li>
+<li>RL: actor-critic</li>
+</ul>
+<hr />
+<h2 id="221-basic-operations-of-vector-symbolic-algebra">2.2.1: Basic operations of vector symbolic algebra</h2>
+<ul>
+<li>these 3 tutorials depends on <a href="https://github.com/ctn-waterloo/sspspace">sspspace (Spatial Semantic Pointers)</a><ul>
+<li>6 stars in 2 years</li>
+</ul>
+</li>
+<li>it is related to <a href="https://github.com/nengo/nengo">nengo</a><ul>
+<li>863 stars in 6 years</li>
+</ul>
+</li>
+<li>not mainstream AI, also doesn't seem to make much sense / be useful. will be skipped.</li>
+</ul>
+<h2 id="222-learning-with-structure">2.2.2: Learning with structure</h2>
+<h2 id="223-representations-in-continuous-space">2.2.3: Representations in continuous space</h2>
+<hr />
+<h2 id="231-microlearning-local">2.3.1!!!: Microlearning (local)</h2>
+<p><img alt="" src="../imgs/na_Microlearning.png" /></p>
+<ul>
+<li>Weight Perturbation</li>
+</ul>
+<div class="arithmatex">\[
+W' = W + Z \quad Z \sim N(0, \sigma^2) \\
+\Delta W = -\eta {dL \over dW} \\[5pt]
+= -\eta E_Z \left[
+    ({dL \over dW}^T Z) { Z \over \sigma^2 }
+\right] \\[5pt]
+\approx -\eta E_Z \left[
+    (L(Z) - L(0)) { Z \over \sigma^2 }
+\right]
+\]</div>
+<ul>
+<li>Node Perturbation</li>
+</ul>
+<div class="arithmatex">\[
+r' = r + z \quad z \sim N(0, \sigma^2) \\
+\Delta W = -\eta E_z \left[
+    (L(z) - L(0)) { z \over \sigma^2 } x^T
+\right]
+\]</div>
+<ul>
+<li>Feedback Alignment</li>
+<li>Kolen-Pollack</li>
+</ul>
+<div class="language-py highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">List</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="kn">import</span><span class="w"> </span><span class="nn">torch</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">tc</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="kn">import</span><span class="w"> </span><span class="nn">torch.nn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">nn</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="kn">from</span><span class="w"> </span><span class="nn">torch.optim</span><span class="w"> </span><span class="kn">import</span> <span class="n">Adam</span><span class="p">,</span> <span class="n">Optimizer</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="k">class</span><span class="w"> </span><span class="nc">WeightPerturb</span><span class="p">(</span><span class="n">Optimizer</span><span class="p">):</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="mf">1e-2</span><span class="p">,</span> <span class="n">lr</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">,</span> <span class="n">K</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>        <span class="n">s</span><span class="o">.</span><span class="n">sig</span><span class="p">,</span> <span class="n">s</span><span class="o">.</span><span class="n">lr</span><span class="p">,</span> <span class="n">s</span><span class="o">.</span><span class="n">K</span> <span class="o">=</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">lr</span><span class="p">,</span> <span class="n">K</span>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>        <span class="nb">super</span><span class="p">(</span><span class="n">WeightPerturb</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">defaults</span><span class="o">=</span><span class="p">{})</span>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">step</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">get_loss</span><span class="p">):</span>
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>        <span class="n">l0</span> <span class="o">=</span> <span class="n">get_loss</span><span class="p">()</span>
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>        <span class="n">ps</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">tc</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">p</span> <span class="k">for</span> <span class="n">g</span> <span class="ow">in</span> <span class="n">s</span><span class="o">.</span><span class="n">param_groups</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">g</span><span class="p">[</span><span class="s2">&quot;params&quot;</span><span class="p">]]</span>
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>        <span class="n">p0s</span> <span class="o">=</span> <span class="p">[</span><span class="n">p</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">clone</span><span class="p">()</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">ps</span><span class="p">]</span>
+</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>        <span class="n">gs</span> <span class="o">=</span> <span class="p">[</span><span class="n">tc</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">ps</span><span class="p">]</span>
+</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a>        <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">K</span><span class="p">):</span>
+</span><span id="__span-1-20"><a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a>            <span class="n">zs</span> <span class="o">=</span> <span class="p">[</span><span class="n">tc</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">s</span><span class="o">.</span><span class="n">sig</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">ps</span><span class="p">]</span>
+</span><span id="__span-1-21"><a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a>            <span class="k">for</span> <span class="n">p</span><span class="p">,</span> <span class="n">p0</span><span class="p">,</span> <span class="n">z</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">ps</span><span class="p">,</span> <span class="n">p0s</span><span class="p">,</span> <span class="n">zs</span><span class="p">):</span>
+</span><span id="__span-1-22"><a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a>                <span class="n">p</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">p0</span> <span class="o">+</span> <span class="n">z</span>
+</span><span id="__span-1-23"><a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a>            <span class="n">lz</span> <span class="o">=</span> <span class="n">get_loss</span><span class="p">()</span>
+</span><span id="__span-1-24"><a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a>            <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">z</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">zs</span><span class="p">):</span>
+</span><span id="__span-1-25"><a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a>                <span class="n">gs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+=</span> <span class="p">(</span><span class="n">lz</span> <span class="o">-</span> <span class="n">l0</span><span class="p">)</span> <span class="o">*</span> <span class="n">z</span> <span class="o">/</span> <span class="n">s</span><span class="o">.</span><span class="n">sig</span><span class="o">**</span><span class="mi">2</span>
+</span><span id="__span-1-26"><a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a>        <span class="k">for</span> <span class="n">p</span><span class="p">,</span> <span class="n">p0</span><span class="p">,</span> <span class="n">g</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">ps</span><span class="p">,</span> <span class="n">p0s</span><span class="p">,</span> <span class="n">gs</span><span class="p">):</span>
+</span><span id="__span-1-27"><a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a>            <span class="n">p</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">p0</span> <span class="o">-</span> <span class="n">s</span><span class="o">.</span><span class="n">lr</span> <span class="o">*</span> <span class="n">g</span> <span class="o">/</span> <span class="n">s</span><span class="o">.</span><span class="n">K</span>
+</span><span id="__span-1-28"><a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a>        <span class="k">return</span> <span class="n">l0</span>
+</span><span id="__span-1-29"><a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a>
+</span><span id="__span-1-30"><a id="__codelineno-1-30" name="__codelineno-1-30" href="#__codelineno-1-30"></a>
+</span><span id="__span-1-31"><a id="__codelineno-1-31" name="__codelineno-1-31" href="#__codelineno-1-31"></a><span class="k">def</span><span class="w"> </span><span class="nf">run_opt</span><span class="p">(</span><span class="n">Opt</span><span class="p">,</span> <span class="n">lr</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">):</span>
+</span><span id="__span-1-32"><a id="__codelineno-1-32" name="__codelineno-1-32" href="#__codelineno-1-32"></a>    <span class="n">tc</span><span class="o">.</span><span class="n">manual_seed</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</span><span id="__span-1-33"><a id="__codelineno-1-33" name="__codelineno-1-33" href="#__codelineno-1-33"></a>    <span class="n">net</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+</span><span id="__span-1-34"><a id="__codelineno-1-34" name="__codelineno-1-34" href="#__codelineno-1-34"></a>    <span class="n">x</span> <span class="o">=</span> <span class="n">tc</span><span class="o">.</span><span class="n">rand</span><span class="p">((</span><span class="mi">100</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+</span><span id="__span-1-35"><a id="__codelineno-1-35" name="__codelineno-1-35" href="#__codelineno-1-35"></a>    <span class="n">y</span> <span class="o">=</span> <span class="n">tc</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">keepdim</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span><span id="__span-1-36"><a id="__codelineno-1-36" name="__codelineno-1-36" href="#__codelineno-1-36"></a>    <span class="n">loss_fn</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">MSELoss</span><span class="p">()</span>
+</span><span id="__span-1-37"><a id="__codelineno-1-37" name="__codelineno-1-37" href="#__codelineno-1-37"></a>    <span class="n">opt</span> <span class="o">=</span> <span class="n">Opt</span><span class="p">(</span><span class="n">net</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">lr</span><span class="o">=</span><span class="n">lr</span><span class="p">)</span>
+</span><span id="__span-1-38"><a id="__codelineno-1-38" name="__codelineno-1-38" href="#__codelineno-1-38"></a>    <span class="n">losses</span> <span class="o">=</span> <span class="p">[]</span>
+</span><span id="__span-1-39"><a id="__codelineno-1-39" name="__codelineno-1-39" href="#__codelineno-1-39"></a>
+</span><span id="__span-1-40"><a id="__codelineno-1-40" name="__codelineno-1-40" href="#__codelineno-1-40"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">get_loss</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">tc</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
+</span><span id="__span-1-41"><a id="__codelineno-1-41" name="__codelineno-1-41" href="#__codelineno-1-41"></a>        <span class="k">return</span> <span class="n">loss_fn</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">net</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+</span><span id="__span-1-42"><a id="__codelineno-1-42" name="__codelineno-1-42" href="#__codelineno-1-42"></a>
+</span><span id="__span-1-43"><a id="__codelineno-1-43" name="__codelineno-1-43" href="#__codelineno-1-43"></a>    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1000</span><span class="p">):</span>
+</span><span id="__span-1-44"><a id="__codelineno-1-44" name="__codelineno-1-44" href="#__codelineno-1-44"></a>        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">opt</span><span class="p">,</span> <span class="n">Adam</span><span class="p">):</span>
+</span><span id="__span-1-45"><a id="__codelineno-1-45" name="__codelineno-1-45" href="#__codelineno-1-45"></a>            <span class="n">opt</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span>
+</span><span id="__span-1-46"><a id="__codelineno-1-46" name="__codelineno-1-46" href="#__codelineno-1-46"></a>            <span class="n">loss</span> <span class="o">=</span> <span class="n">get_loss</span><span class="p">()</span>
+</span><span id="__span-1-47"><a id="__codelineno-1-47" name="__codelineno-1-47" href="#__codelineno-1-47"></a>            <span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+</span><span id="__span-1-48"><a id="__codelineno-1-48" name="__codelineno-1-48" href="#__codelineno-1-48"></a>            <span class="n">opt</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+</span><span id="__span-1-49"><a id="__codelineno-1-49" name="__codelineno-1-49" href="#__codelineno-1-49"></a>        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">opt</span><span class="p">,</span> <span class="n">WeightPerturb</span><span class="p">):</span>
+</span><span id="__span-1-50"><a id="__codelineno-1-50" name="__codelineno-1-50" href="#__codelineno-1-50"></a>            <span class="n">loss</span> <span class="o">=</span> <span class="n">opt</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="n">get_loss</span><span class="p">)</span>
+</span><span id="__span-1-51"><a id="__codelineno-1-51" name="__codelineno-1-51" href="#__codelineno-1-51"></a>        <span class="n">losses</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">loss</span><span class="o">.</span><span class="n">item</span><span class="p">())</span>
+</span><span id="__span-1-52"><a id="__codelineno-1-52" name="__codelineno-1-52" href="#__codelineno-1-52"></a>    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">losses</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">opt</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
+</span><span id="__span-1-53"><a id="__codelineno-1-53" name="__codelineno-1-53" href="#__codelineno-1-53"></a>
+</span><span id="__span-1-54"><a id="__codelineno-1-54" name="__codelineno-1-54" href="#__codelineno-1-54"></a>
+</span><span id="__span-1-55"><a id="__codelineno-1-55" name="__codelineno-1-55" href="#__codelineno-1-55"></a><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+</span><span id="__span-1-56"><a id="__codelineno-1-56" name="__codelineno-1-56" href="#__codelineno-1-56"></a>    <span class="n">run_opt</span><span class="p">(</span><span class="n">Adam</span><span class="p">)</span>
+</span><span id="__span-1-57"><a id="__codelineno-1-57" name="__codelineno-1-57" href="#__codelineno-1-57"></a>    <span class="n">run_opt</span><span class="p">(</span><span class="n">WeightPerturb</span><span class="p">)</span>
+</span><span id="__span-1-58"><a id="__codelineno-1-58" name="__codelineno-1-58" href="#__codelineno-1-58"></a>    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+</span><span id="__span-1-59"><a id="__codelineno-1-59" name="__codelineno-1-59" href="#__codelineno-1-59"></a>    <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;test&quot;</span><span class="p">)</span>
+</span></code></pre></div>
+<hr />
+<h2 id="241-the-problem-of-changing-data-distributions">2.4.1: The problem of changing data distributions</h2>
+<ul>
+<li>Covariate shift: $ x $ changes.  </li>
+<li>Concept shift: $ f $ changes.</li>
+</ul>
+<h2 id="242-continual-learning">2.4.2: Continual learning</h2>
+<p>solves catastrophic forgetting</p>
+<h2 id="243-meta-learning">2.4.3: Meta-learning</h2>
+<h3 id="2017-model-agnostic-meta-learning-maml"><code>2017</code> <a href="https://arxiv.org/pdf/1703.03400">Model-Agnostic Meta-Learning (MAML)</a></h3>
+<ul>
+<li>
+<p>Sergey Levine, Pieter Abbeel</p>
+</li>
+<li>
+<p>ABSTRACT</p>
+<ul>
+<li>In effect, our method trains the model to be easy to fine-tune. We demonstrate that this approach leads to state-of-the-art performance on two few-shot image classification benchmarks, produces good results on few-shot regression, and accelerates fine-tuning for policy gradient RL.</li>
+</ul>
+</li>
+</ul>
+<p><img alt="" src="../imgs/2017_MAML.png" />
+<img alt="" src="../imgs/2017_MAML2.png" /></p>
+<h2 id="244-biological-meta-reinforcement-learning">2.4.4: Biological meta reinforcement learning</h2>
+<h3 id="advantage-actor-critic-a2c">Advantage Actor Critic (A2C)</h3>
+<ul>
+<li>Policy (Actor): selects actions using a policy $ \pi_\theta(a|s) $. Value Function (Critic): estimates the state value $ V_\phi(s) $. Empirical Return (Monte Carlo). Advantage</li>
+</ul>
+<div class="arithmatex">\[
+\pi_\theta(a|s) = \text{softmax}(W_{\text{actor}} \cdot h + b_{\text{actor}}) \\
+V_\phi(s) = W_{\text{critic}} \cdot h + b_{\text{critic}} \\
+Q(s_t, a_t) = \sum_{k=0}^{T-t} \gamma^k r_{t+k} \\
+A(s_t, a_t) = Q(s_t, a_t) - V_\phi(s_t)
+\]</div>
+<ul>
+<li>Policy Gradient Loss, Value Function Loss, Entropy Regularization</li>
+</ul>
+<div class="arithmatex">\[
+\mathcal{L}_{\text{actor}} = -\mathbb{E} \left[ \log \pi_\theta(a|s) \cdot A(s,a) \right] \\
+\mathcal{L}_{\text{critic}} = \mathbb{E} \left[ (Q(s,a) - V_\phi(s))^2 \right] \\
+\mathcal{L}_{\text{entropy}} = -\mathbb{E} \left[ \sum_a \pi_\theta(a|s) \log \pi_\theta(a|s) \right] \\
+\mathcal{L}_{\text{total}} = \mathcal{L}_{\text{actor}} + \beta_v \mathcal{L}_{\text{critic}} - \beta_e \mathcal{L}_{\text{entropy}}
+\]</div>
+<h3 id="baldwin-effect-meta-learning">Baldwin effect: meta-learning</h3>
+<ul>
+<li>
+<p>Baldwin effect</p>
+<ul>
+<li>learned behaviors indirectly shape genetic evolution through natural selection (favoring traits that facilitate learning), rather than implying that acquired skills are directly encoded into genes (Lamarckian)</li>
+<li>we don't inherit the features / weights that make us good at specific tasks but rather the <strong>ability to learn quickly</strong> to gain the needed features</li>
+<li>evolution will select organisms that are good at learning</li>
+</ul>
+</li>
+<li>
+<p>implementation</p>
+<ul>
+<li>Outer Loop: Genetic Algorithm (finds good initial parameters, those good at learning)<ul>
+<li>Inner Loop: Standard RL</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="2018-prefrontal-cortex-meta-rl"><code>2018</code> <a href="https://gwern.net/doc/reinforcement-learning/meta-learning/2018-wang.pdf">Prefrontal cortex meta-RL</a></h3>
+<ul>
+<li>
+<p><strong>Seems this paper lacks detailed mechanistic algorithms / code / math, need to investigate further</strong></p>
+</li>
+<li>
+<p>Demis Hassabis</p>
+</li>
+<li>
+<p>ABSTRACT</p>
+<ul>
+<li>Over the past 20 years, neuroscience research on reward-based learning has converged on a canonical model: dopamine 'stamps in' associations between situations, actions and rewards by modulating synaptic strength. However, a growing number of recent findings have placed this standard model under strain. </li>
+<li>We introduce a new theory where the dopamine system trains the prefrontal cortex, to operate as its own free-standing learning system. </li>
+</ul>
+</li>
+</ul>
+<p><img alt="" src="../imgs/2018_PFC.png" /></p>
+<ol>
+<li>Architecture: The prefrontal network (PFN), including sectors of the basal ganglia and the thalamus that connect directly with PFC, is modeled as a RNN, with synaptic weights adjusted through an RL algorithm driven by dopamine (DA). o = perceptual input. a = action. r = reward. v = state value. δ = reward prediction error (RPE)</li>
+<li>Learning: As suggested in past research, we assume that the synaptic weights within the prefrontal network, are adjusted by a model-free RL procedure, within which DA conveys a RPE signal. Via this role, the DA-based RL procedure shapes the activation dynamics of the recurrent prefrontal network.</li>
+<li>
+<p>Task environment: Following past proposals, we assume that RL takes place not on a single task, but instead in a dynamic environment posing a series of interrelated tasks. The learning system is thus required to engage in ongoing inference and behavioral adjustment. </p>
+</li>
+<li>
+<p>these 3 premises are all firmly grounded in existing research. The novel contribution here is to identify an emergent effect that results when the 3 premises are concurrently satisfied. As we will show, these conditions, when they co-occur, are sufficient to produce a form of meta-learning, where one learning algorithm gives rise to a second, more efficient learning algorithm. Specifically, by adjusting the connection weights within the prefrontal network, DA-based RL creates a second RL algorithm, implemented entirely in the prefrontal network's activation dynamics. <strong>This new learning algorithm is independent of the original one</strong>, and differs in ways that are suited to the task environment. Crucially, the emergent algorithm is a full-fledged RL procedure: It copes with the exploration-exploitation tradeoff, maintains a representation of the value function, and progressively adjusts the action policy. In view of this point, and in recognition of some precursor research, we refer to the overall effect as meta-reinforcement learning. </p>
+</li>
+</ol>
+<h2 id="245-replay-buffer">2.4.5: Replay Buffer</h2>
+<hr />
+<h2 id="251-consciousness">2.5.1: Consciousness</h2>
+<ul>
+<li>Objectives<ul>
+<li>the hard problem of consciousness</li>
+<li>phenomenal consciousness vs access consciousness</li>
+<li>consciousness vs sentience vs intelligence</li>
+<li>reductionist theories: Global Workspace Theory (GWT), metacognition, Higher-Order Thought (HOT)</li>
+</ul>
+</li>
+</ul>
+<h3 id="2020-recurrent-independent-mechanisms-rim-modularity"><code>2020</code> <a href="https://arxiv.org/pdf/1909.10893">Recurrent Independent Mechanisms (RIM)</a>: <code>modularity</code></h3>
+<ul>
+<li>
+<p>Sergey Levine, Yoshua Bengio, Bernhard Schölkopf</p>
+</li>
+<li>
+<p>ABSTRACT</p>
+<ul>
+<li>a new recurrent architecture in which multiple groups of recurrent cells operate with nearly independent transition dynamics, communicate sparingly through the bottleneck of attention, and compete with each other so they are updated only at time steps where they are most relevant </li>
+<li>leads to specialization amongst the RIMs, remarkably improved generalization on tasks where some factors of variation differ systematically between training and evaluation</li>
+</ul>
+</li>
+<li>
+<p>RIM vs RNN (LSTM, GRU)</p>
+<ul>
+<li>The RIM cells are sparsely activated, only a subset of them are active at each time step</li>
+<li>cells are mostly independent, do not share weights or hidden states</li>
+<li>communicate with each other through an attention mechanism</li>
+</ul>
+</li>
+</ul>
+<p><img alt="" src="../imgs/2020_RIM.png" /></p>
+<ul>
+<li>A single step has 4 stages <ol>
+<li>individual RIMs produce a query which is used to read from the current input</li>
+<li>attention is used to select which RIMs to activate </li>
+<li>activated RIMs follow their own transition dynamics</li>
+<li>RIMs sparsely communicate between themselves using attention</li>
+</ol>
+</li>
+</ul>
+<h3 id="2022-global-workspace-theory-gwt-coordination"><code>2022</code> <a href="https://arxiv.org/pdf/2103.01197">Global Workspace Theory (GWT)</a>: <code>coordination</code></h3>
+<ul>
+<li>
+<p>Yoshua Bengio</p>
+</li>
+<li>
+<p>ABSTRACT</p>
+<ul>
+<li>Deep learning has seen a movement away from representing examples with a monolithic hidden state towards a richly structured state:<ul>
+<li>Transformers segment by position</li>
+<li>object-centric architectures decompose images into entities </li>
+</ul>
+</li>
+<li>In all these architectures, interactions between different elements are modeled via <strong>pairwise interactions</strong>: <ul>
+<li>Transformers make use of self-attention to incorporate information from other positions </li>
+<li>object-centric architectures make use of graph neural networks to model interactions among entities </li>
+</ul>
+</li>
+<li>We consider how to improve on pairwise interactions in terms of global coordination and a coherent, integrated representation that can be used for downstream tasks </li>
+<li>In cognitive science, a global workspace architecture has been proposed in which functionally specialized components share information through a common, bandwidth-limited communication channel. </li>
+<li>The proposed method includes a shared workspace through which communication among different specialist modules takes place but due to limits on the communication bandwidth, specialist modules must compete for access. We show that capacity limitations have a rational basis in that:<ul>
+<li>they encourage specialization and compositionality</li>
+<li>they facilitate the synchronization of otherwise independent specialists</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><img alt="" src="../imgs/2022_GWT.png" /></p>
+<ul>
+<li>
+<p>workflow</p>
+<ol>
+<li>an ensemble of specialist modules doing their own default processing; at a particular computational stage, depending upon the input, a subset of the specialists becomes active.</li>
+<li>the active specialists get to write information in a shared global workspace.</li>
+<li>the contents of the workspace are broadcast to all specialists.</li>
+</ol>
+</li>
+<li>
+<p><code>1988</code> <a href="https://en.wikipedia.org/wiki/Global_workspace_theory">GWT of consciousness</a>: consciousness arises from the ability of various brain processes to access a shared information platform, the Global Workspace.</p>
+</li>
+</ul>
+<h3 id="second-order-model">Second order model</h3>
+<ul>
+<li>
+<p>Blindsight: people with damaged primary visual cortex can still respond to visual stimuli without consciously perceiving them</p>
+</li>
+<li>
+<p>This section defines two neural networks working together:  </p>
+<ol>
+<li><strong>FirstOrderNetwork</strong>: Processes input data (100D → hidden layer → 100D output).  </li>
+<li><strong>SecondOrderNetwork</strong>: Compares the input and output of the first network, then outputs a "confidence score" (called a <em>wager</em>) indicating how well the first network performed.  </li>
+</ol>
+</li>
+<li><strong>Main Idea</strong>: The system not only makes predictions but also self-evaluates their reliability. The second network acts like a "critic" assessing the first network's performance on each input.</li>
+</ul>
+<h3 id="higher-order-state-space-hoss-model">Higher Order State Space (HOSS) model</h3>
+<ul>
+<li>
+<p>higher-order theory: consciousness stems from the ability to monitor basic, or first-order, information processing activities, instead of merely broadcasting information globally</p>
+</li>
+<li>
+<p>global <strong>ignition</strong> responses: big surges in brain activity that happen when we become conscious of something</p>
+</li>
+</ul>
+<h2 id="252-ethics">2.5.2: Ethics</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.56ea9cef.min.js"></script>
+      
+        <script src="../js/main.js"></script>
+      
+        <script src="../js/katex.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+      
+    
+  </body>
+</html>

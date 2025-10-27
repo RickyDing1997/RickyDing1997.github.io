@@ -1,0 +1,1576 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://rickyding1997.github.io/Study-Notes-2025/NeuroAI/2017_NeuroAI_1.html">
+      
+      
+        <link rel="prev" href="../RL.html">
+      
+      
+        <link rel="next" href="2017_NeuroAI_2.html">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.15">
+    
+    
+      
+        <title>2017 NeuroAI 1 - Ricky's Study Notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.342714a4.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../css/main.css">
+    
+      <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#neuroscience-inspired-artificial-intelligence" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../index.html" title="Ricky&#39;s Study Notes" class="md-header__button md-logo" aria-label="Ricky's Study Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Ricky's Study Notes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              2017 NeuroAI 1
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../index.html" title="Ricky&#39;s Study Notes" class="md-nav__button md-logo" aria-label="Ricky's Study Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Ricky's Study Notes
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DeepSeek.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    DeepSeek
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../RL.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    RL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    NeuroAI
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            NeuroAI
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    2017 NeuroAI 1
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="2017_NeuroAI_1.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    2017 NeuroAI 1
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#neuroscience-inspired-artificial-intelligence" class="md-nav__link">
+    <span class="md-ellipsis">
+      Neuroscience-Inspired Artificial Intelligence
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Neuroscience-Inspired Artificial Intelligence">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#past-deep-learning" class="md-nav__link">
+    <span class="md-ellipsis">
+      Past: Deep Learning
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#past-reinforcement-learning" class="md-nav__link">
+    <span class="md-ellipsis">
+      Past: Reinforcement Learning
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#present-attention" class="md-nav__link">
+    <span class="md-ellipsis">
+      Present: Attention
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#present-episodic-memory" class="md-nav__link">
+    <span class="md-ellipsis">
+      Present: Episodic Memory
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#present-working-memory" class="md-nav__link">
+    <span class="md-ellipsis">
+      Present: Working Memory
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#present-continual-learning" class="md-nav__link">
+    <span class="md-ellipsis">
+      Present: Continual Learning
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#future" class="md-nav__link">
+    <span class="md-ellipsis">
+      Future
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#future-intuitive-understanding-of-the-physical-world" class="md-nav__link">
+    <span class="md-ellipsis">
+      Future: Intuitive Understanding of the Physical World
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#future-efficient-learning" class="md-nav__link">
+    <span class="md-ellipsis">
+      Future: Efficient Learning
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#future-transfer-learning" class="md-nav__link">
+    <span class="md-ellipsis">
+      Future: Transfer Learning
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#future-imagination-and-planning" class="md-nav__link">
+    <span class="md-ellipsis">
+      Future: Imagination and Planning
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#future-virtual-brain-analytics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Future: Virtual Brain Analytics
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#from-ai-to-neuroscience" class="md-nav__link">
+    <span class="md-ellipsis">
+      From AI to Neuroscience
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="2017_NeuroAI_2.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2017 NeuroAI 2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Neuromatch_course.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Neuromatch course
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Trading
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Trading
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../trading/options.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Options
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#neuroscience-inspired-artificial-intelligence" class="md-nav__link">
+    <span class="md-ellipsis">
+      Neuroscience-Inspired Artificial Intelligence
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Neuroscience-Inspired Artificial Intelligence">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#past-deep-learning" class="md-nav__link">
+    <span class="md-ellipsis">
+      Past: Deep Learning
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#past-reinforcement-learning" class="md-nav__link">
+    <span class="md-ellipsis">
+      Past: Reinforcement Learning
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#present-attention" class="md-nav__link">
+    <span class="md-ellipsis">
+      Present: Attention
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#present-episodic-memory" class="md-nav__link">
+    <span class="md-ellipsis">
+      Present: Episodic Memory
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#present-working-memory" class="md-nav__link">
+    <span class="md-ellipsis">
+      Present: Working Memory
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#present-continual-learning" class="md-nav__link">
+    <span class="md-ellipsis">
+      Present: Continual Learning
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#future" class="md-nav__link">
+    <span class="md-ellipsis">
+      Future
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#future-intuitive-understanding-of-the-physical-world" class="md-nav__link">
+    <span class="md-ellipsis">
+      Future: Intuitive Understanding of the Physical World
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#future-efficient-learning" class="md-nav__link">
+    <span class="md-ellipsis">
+      Future: Efficient Learning
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#future-transfer-learning" class="md-nav__link">
+    <span class="md-ellipsis">
+      Future: Transfer Learning
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#future-imagination-and-planning" class="md-nav__link">
+    <span class="md-ellipsis">
+      Future: Imagination and Planning
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#future-virtual-brain-analytics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Future: Virtual Brain Analytics
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#from-ai-to-neuroscience" class="md-nav__link">
+    <span class="md-ellipsis">
+      From AI to Neuroscience
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>2017 NeuroAI 1</h1>
+
+<p><strong>Generated by DeepSeek</strong></p>
+<h2 id="neuroscience-inspired-artificial-intelligence"><a href="../files/2017_NeuroAI.pdf">Neuroscience-Inspired Artificial Intelligence</a></h2>
+<ul>
+<li>2017, Demis Hassabis, Dharshan Kumaran, Christopher Summerfield, Matthew Botvinick</li>
+</ul>
+<h3 id="summary">Summary</h3>
+<ul>
+<li>
+<p><strong>Past: Deep Learning</strong></p>
+<ul>
+<li><strong>Origins in Neuroscience</strong><ul>
+<li>ANN (1940s): Inspired by logical functions (McCulloch and Pitts, 1943)</li>
+<li>Learning: Supervised (Rosenblatt, 1958), Unsupervised (Hebb, 1949)</li>
+</ul>
+</li>
+<li><strong>Backpropagation &amp; PDP</strong><ul>
+<li>Backpropagation: Multi-layered learning (Rumelhart et al., 1985; Werbos, 1974)</li>
+<li>PDP: Distributed cognition, error/reward optimization (Rumelhart et al., 1986)</li>
+</ul>
+</li>
+<li><strong>PDP Influence</strong><ul>
+<li>Distributed representations: Vectors for words/sentences (St. John and McClelland, 1990)</li>
+<li>Models human behaviors (Hinton et al., 1986)</li>
+</ul>
+</li>
+<li><strong>CNNs</strong><ul>
+<li>Features: Nonlinear transduction, divisive normalization, max-pooling (Hubel and Wiesel, 1959)</li>
+<li>Hierarchical organization (Fukushima, 1980; LeCun et al., 1989; Krizhevsky et al., 2012)</li>
+</ul>
+</li>
+<li><strong>Advancements</strong><ul>
+<li>Deep Belief Networks (Hinton et al., 2006)</li>
+<li>Large datasets (Deng et al., 2009)</li>
+<li>Dropout: Stochastic regularization (Hinton et al., 2012)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Past: Reinforcement Learning (RL)</strong></p>
+<ul>
+<li><strong>Origins</strong><ul>
+<li>Animal conditioning (Sutton and Barto, 1981)</li>
+<li>TD Learning: Second-order conditioning (Sutton and Barto, 1998)</li>
+</ul>
+</li>
+<li><strong>Impact</strong><ul>
+<li>Maps states to actions (Sutton and Barto, 1998)</li>
+<li>Applications: Robotics (Hafner and Riedmiller, 2011), Backgammon (Tesauro, 1995), Go (Silver et al., 2016)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Present: Attention</strong></p>
+<ul>
+<li><strong>Modular Brain Structure</strong><ul>
+<li>Subsystems: Memory, language, cognitive control (Anderson et al., 2004)</li>
+</ul>
+</li>
+<li><strong>Visual Attention</strong><ul>
+<li>Sequential processing (Koch and Ullman, 1985)</li>
+<li>Neurocomputational models (Olshausen et al., 1993)</li>
+</ul>
+</li>
+<li><strong>AI Architectures</strong><ul>
+<li>Sequential glimpses (Larochelle and Hinton, 2010; Mnih et al., 2014)</li>
+<li>Selective attention: Cluttered classification (Mnih et al., 2014)</li>
+<li>Multi-object recognition (Ba et al., 2015)</li>
+<li>Image-to-caption (Xu et al., 2015)</li>
+</ul>
+</li>
+<li><strong>Internal Attention</strong><ul>
+<li>Memory focus (Summerfield et al., 2006)</li>
+<li>Machine translation (Bahdanau et al., 2014)</li>
+<li>Content-addressable retrieval (Hopfield, 1982)</li>
+</ul>
+</li>
+<li><strong>Generative Models</strong><ul>
+<li>DRAW: Incremental image synthesis (Gregor et al., 2015)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Present: Episodic Memory</strong></p>
+<ul>
+<li><strong>Neuroscience Basis</strong><ul>
+<li>Episodic memory: Hippocampal one-shot encoding (Tulving, 1985)</li>
+</ul>
+</li>
+<li><strong>DQN</strong><ul>
+<li>Experience replay: Hippocampal-neocortical interaction (Mnih et al., 2015)</li>
+<li>Reward-based replay (Schaul et al., 2015)</li>
+</ul>
+</li>
+<li><strong>Complementary Learning</strong><ul>
+<li>Hippocampal rapid encoding, neocortical consolidation (O’Neill et al., 2010)</li>
+</ul>
+</li>
+<li><strong>Episodic Control</strong><ul>
+<li>Rapid behavioral changes (Blundell et al., 2016)</li>
+<li>One-shot learning (Vinyals et al., 2016)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Present: Working Memory</strong></p>
+<ul>
+<li><strong>Human Basis</strong><ul>
+<li>Prefrontal cortex, central executive (Baddeley, 2012)</li>
+</ul>
+</li>
+<li><strong>RNN</strong><ul>
+<li>Attractor dynamics (Elman, 1990)</li>
+</ul>
+</li>
+<li><strong>LSTM</strong><ul>
+<li>Gated memory maintenance (Hochreiter and Schmidhuber, 1997)</li>
+<li>Query response (Zaremba and Sutskever, 2014)</li>
+</ul>
+</li>
+<li><strong>DNC</strong><ul>
+<li>External memory matrix (Graves et al., 2016)</li>
+<li>Complex reasoning (Graves et al., 2014)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Present: Continual Learning</strong></p>
+<ul>
+<li><strong>Challenges</strong><ul>
+<li>Catastrophic forgetting (French, 1999)</li>
+</ul>
+</li>
+<li><strong>Neuroscience Insights</strong><ul>
+<li>Dendritic spine dynamics (Nishiyama and Yasuda, 2015)</li>
+<li>Synaptic protection (Cichon and Gan, 2015)</li>
+</ul>
+</li>
+<li><strong>AI Solutions</strong><ul>
+<li>EWC: Weight consolidation (Kirkpatrick et al., 2017)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Future: Achievements</strong></p>
+<ul>
+<li>Object recognition (Krizhevsky et al., 2012)</li>
+<li>Games: Atari (Mnih et al., 2015), Go (Silver et al., 2016), Poker (Moravčík et al., 2017)</li>
+<li>Image/speech synthesis (Lake et al., 2015)</li>
+<li>Multilingual translation (Wu et al., 2016)</li>
+<li>Neural art (Gatys et al., 2015)</li>
+</ul>
+</li>
+<li>
+<p><strong>Future: Intuitive Understanding</strong></p>
+<ul>
+<li><strong>Human Cognition</strong><ul>
+<li>Innate physical concepts (Spelke and Kinzler, 2007)</li>
+</ul>
+</li>
+<li><strong>AI Approaches</strong><ul>
+<li>Scene decomposition (Battaglia et al., 2016)</li>
+<li>Deep RL commonsense (Denil et al., 2016)</li>
+<li>Deep generative models: Disentangled representations (Higgins et al., 2016)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Future: Efficient Learning</strong></p>
+<ul>
+<li><strong>Human Efficiency</strong><ul>
+<li>Few-shot learning (Lake et al., 2016)</li>
+</ul>
+</li>
+<li><strong>AI Progress</strong><ul>
+<li>Probabilistic models (Lake et al., 2015)</li>
+<li>DRAW-based one-shot learning (Rezende et al., 2016b)</li>
+<li>Meta-learning (Santoro et al., 2016)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Future: Transfer Learning</strong></p>
+<ul>
+<li><strong>AI Architectures</strong><ul>
+<li>Progressive Networks: Knowledge transfer (Rusu et al., 2016a)</li>
+<li>Compositional representations (Higgins et al., 2016)</li>
+</ul>
+</li>
+<li><strong>Neuroscience Basis</strong><ul>
+<li>Grid codes: Abstract reasoning (Constantinescu et al., 2016)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Future: Imagination &amp; Planning</strong></p>
+<ul>
+<li><strong>Limitations</strong><ul>
+<li>Model-free RL inefficiency (Daw et al., 2005)</li>
+</ul>
+</li>
+<li><strong>Human/Animal Planning</strong><ul>
+<li>Simulation-based (Daw et al., 2005)</li>
+<li>Hippocampal preplay (Johnson and Redish, 2007)</li>
+</ul>
+</li>
+<li><strong>AI Techniques</strong><ul>
+<li>Dyna: Hypothetical experiences (Sutton, 1991)</li>
+<li>Model-based RL, MCTS (Silver et al., 2016)</li>
+<li>Deep generative models: Coherent sequences (Eslami et al., 2016)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Future: Virtual Brain Analytics</strong></p>
+<ul>
+<li><strong>Neuroscience Tools</strong><ul>
+<li>Dimensionality reduction (Zahavy et al., 2016)</li>
+<li>Receptive field mapping (Nguyen et al., 2016)</li>
+<li>Linearized network analysis (Saxe et al., 2013)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>From AI to Neuroscience</strong></p>
+<ul>
+<li><strong>Applications</strong><ul>
+<li>Neuroimaging: fMRI/MEG analysis (Cichy et al., 2014)</li>
+<li>RL: TD prediction errors (Schultz et al., 1997)</li>
+<li>CNN: Ventral visual stream (Yamins and DiCarlo, 2016)</li>
+<li>LSTM: Prefrontal gating (O’Reilly and Frank, 2006)</li>
+<li>Memory-augmented networks: Hippocampal querying (Kumaran and McClelland, 2012)</li>
+<li>Meta-RL: Prefrontal RL (Duan et al., 2016)</li>
+<li>Backpropagation: Biologically plausible approximations (Lillicrap et al., 2016)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr />
+<hr />
+<hr />
+<h3 id="past-deep-learning">Past: Deep Learning</h3>
+<ul>
+<li>
+<p><strong>Origins in Neuroscience</strong>:</p>
+<ul>
+<li>ANN, inspired by neuroscience, were developed in the 1940s to compute logical functions (McCulloch and Pitts, 1943).</li>
+<li>Learning mechanisms proposed include supervised incremental learning (Rosenblatt, 1958) and unsupervised encoding of environmental statistics (Hebb, 1949).</li>
+</ul>
+</li>
+<li>
+<p><strong>Backpropagation and Parallel Distributed Processing (PDP)</strong>:</p>
+<ul>
+<li>Backpropagation algorithm enabled learning in multi-layered networks (Rumelhart et al., 1985; Werbos, 1974).</li>
+<li>PDP movement, led by neuroscientists, proposed cognition emerges from distributed interactions in neuron-like units, tuned by learning to minimize error or maximize reward (Rumelhart et al., 1986).</li>
+<li>Contrasted with symbolic AI, PDP emphasized stochastic, parallelized processing inspired by brain function.</li>
+</ul>
+</li>
+<li>
+<p><strong>PDP Influence on AI</strong>:</p>
+<ul>
+<li>PDP models introduced distributed representations (e.g., vectors for words/sentences), foundational for modern machine translation (St. John and McClelland, 1990; LeCun et al., 2015).</li>
+<li>Successfully modeled diverse human behaviors using small-scale problems (Hinton et al., 1986).</li>
+</ul>
+</li>
+<li>
+<p><strong>CNNs</strong>:</p>
+<ul>
+<li>CNNs incorporate neuroscience-inspired features: nonlinear transduction, divisive normalization, and max-pooling, derived from V1 simple and complex cell recordings (Hubel and Wiesel, 1959; Yamins and DiCarlo, 2016).</li>
+<li>Replicate hierarchical cortical organization with convergent/divergent information flow (Fukushima, 1980; LeCun et al., 1989; Krizhevsky et al., 2012).</li>
+<li>Successive non-linear computations enable invariant object recognition across pose, illumination, and scale.</li>
+</ul>
+</li>
+<li>
+<p><strong>Advancements in Deep Learning</strong>:</p>
+<ul>
+<li>Deep belief networks advanced NN capabilities (Hinton et al., 2006).</li>
+<li>Large datasets, inspired by human language research, improved training (Deng et al., 2009).</li>
+<li>Dropout regularization, motivated by stochastic neuronal firing (Poisson-like statistics), enhances generalization (Hinton et al., 2012).</li>
+</ul>
+</li>
+</ul>
+<h3 id="past-reinforcement-learning">Past: Reinforcement Learning</h3>
+<ul>
+<li>
+<p><strong>Origins in Neuroscience</strong>:</p>
+<ul>
+<li>RL emerged from studies of animal learning, particularly conditioning experiments (Sutton and Barto, 1981).</li>
+<li>Temporal-difference (TD) methods, a core RL component, were inspired by animal behavior in second-order conditioning, where a conditioned stimulus gains significance through association with another conditioned stimulus.</li>
+</ul>
+</li>
+<li>
+<p><strong>TD Learning Mechanism</strong>:</p>
+<ul>
+<li>TD methods learn from differences between successive predictions in real-time, without waiting for actual rewards.</li>
+<li>Provides a natural explanation for second-order conditioning and broader neuroscience findings.</li>
+</ul>
+</li>
+<li>
+<p><strong>Impact on AI</strong>:</p>
+<ul>
+<li>RL maps environmental states to actions to maximize future rewards, widely used in AI research (Sutton and Barto, 1998).</li>
+<li>TD methods and related techniques enabled advances in robotic control (Hafner and Riedmiller, 2011), expert backgammon play (Tesauro, 1995), and Go (Silver et al., 2016).</li>
+</ul>
+</li>
+</ul>
+<h3 id="present-attention">Present: Attention</h3>
+<ul>
+<li>
+<p><strong>Modular Brain Structure</strong>:</p>
+<ul>
+<li>Biological brains are modular, with distinct subsystems for memory, language, and cognitive control (Anderson et al., 2004; Shallice, 1988).</li>
+<li>This modularity influences AI architectures, incorporating specialized subsystems.</li>
+</ul>
+</li>
+<li>
+<p><strong>Visual Attention in Primates</strong>:</p>
+<ul>
+<li>Primate visual systems prioritize processing through strategic shifts of attention, focusing on specific regions sequentially (Koch and Ullman, 1985; Moore and Zir imperfections, 2017; Posner and Petersen, 1990).</li>
+<li>Neurocomputational models show this approach isolates relevant information, enhancing behavioral outcomes (Olshausen et al., 1993; Salinas and Abbott, 1997).</li>
+</ul>
+</li>
+<li>
+<p><strong>Attention in AI Architectures</strong>:</p>
+<ul>
+<li>AI models mimic visual attention by taking sequential "glimpses" of input images, updating internal states, and selecting subsequent sampling locations (Larochelle and Hinton, 2010; Mnih et al., 2014).</li>
+<li>Selective attention enables networks to ignore irrelevant objects, improving performance in cluttered object classification tasks (Mnih et al., 2014).</li>
+<li>Attention reduces computational cost, scaling efficiently with input image size (Mnih et al., 2014).</li>
+<li>Extended attention mechanisms outperform conventional CNNs in multi-object recognition, improving accuracy and efficiency (Ba et al., 2015).</li>
+<li>Attention enhances image-to-caption generation (Xu et al., 2015).</li>
+</ul>
+</li>
+<li>
+<p><strong>Internal Attention and Memory</strong>:</p>
+<ul>
+<li>Attention can focus on internal memory contents, inspired by neuroscience (Summerfield et al., 2006).</li>
+<li>AI architectures use attention to selectively read from internal memory, advancing machine translation (Bahdanau et al., 2014) and memory/reasoning tasks (Graves et al., 2016).</li>
+<li>Implements content-addressable retrieval, a concept from neuroscience (Hopfield, 1982).</li>
+</ul>
+</li>
+<li>
+<p><strong>Attention in Generative Models</strong>:</p>
+<ul>
+<li>Deep generative models incorporate attention to synthesize realistic images (Hong et al., 2015; Reed et al., 2016).</li>
+<li>The DRAW model uses attention to incrementally build images by focusing on portions of a "mental canvas" (Gregor et al., 2015).</li>
+</ul>
+</li>
+</ul>
+<h3 id="present-episodic-memory">Present: Episodic Memory</h3>
+<ul>
+<li>
+<p><strong>Multiple Memory Systems in Neuroscience</strong>:</p>
+<ul>
+<li>Intelligent behavior relies on reinforcement-based and instance-based (episodic) memory systems (Tulving, 1985).</li>
+<li>Episodic memory enables rapid, one-shot encoding of experiences in a content-addressable store, primarily in the hippocampus (Squire et al., 2004; Tulving, 2002).</li>
+</ul>
+</li>
+<li>
+<p><strong>Experience Replay in Deep Q-Networks (DQN)</strong>:</p>
+<ul>
+<li>DQN integrates RL with deep learning, achieving expert-level performance in Atari 2600 games by transforming image pixels into action policies (Mnih et al., 2015; Silver et al., 2016).</li>
+<li>Experience replay, inspired by hippocampal-neocortical interactions, stores and replays training data offline to enhance data efficiency and prevent destabilization from correlated experiences (Kumaran et al., 2016; McClelland et al., 1995).</li>
+<li>Replay of highly rewarding events improves DQN performance, mirroring hippocampal replay of rewarding experiences (Schaul et al., 2015; Singer and Frank, 2009).</li>
+</ul>
+</li>
+<li>
+<p><strong>Hippocampal-Neocortical Complementary Learning</strong>:</p>
+<ul>
+<li>The hippocampus encodes novel information rapidly, which is consolidated to the neocortex during sleep or rest via replay of neural activity patterns (O’Neill et al., 2010; Skaggs and McNaughton, 1996).</li>
+<li>This mechanism prevents catastrophic forgetting in NN by mitigating interference from sequential tasks (McClelland et al., 1995).</li>
+</ul>
+</li>
+<li>
+<p><strong>Episodic Control in AI</strong>:</p>
+<ul>
+<li>Episodic control, inspired by hippocampal function, enables rapid behavioral changes by re-enacting rewarded action sequences from memory (Gershman and Daw, 2017).</li>
+<li>AI architectures implementing episodic control store experiences (e.g., actions, rewards, game states) and select actions based on similarity to past events, improving early learning performance (Blundell et al., 2016).</li>
+<li>Episodic control excels in one-shot learning tasks where traditional deep RL struggles (Blundell et al., 2016).</li>
+</ul>
+</li>
+<li>
+<p><strong>Broader Episodic-Like Memory Systems</strong>:</p>
+<ul>
+<li>Episodic-like memory enables rapid learning of new concepts from few examples (Vinyals et al., 2016).</li>
+<li>Future architectures may integrate rapid episodic memory with incremental learning, mirroring complementary learning systems in the mammalian brain.</li>
+</ul>
+</li>
+</ul>
+<h3 id="present-working-memory">Present: Working Memory</h3>
+<ul>
+<li>
+<p><strong>Human Working Memory</strong>:</p>
+<ul>
+<li>Maintains and manipulates information in an active store, primarily in the prefrontal cortex and interconnected areas (Goldman-Rakic, 1990).</li>
+<li>Classic models propose a central executive interacting with domain-specific buffers (e.g., visuo-spatial sketchpad) (Baddeley, 2012).</li>
+</ul>
+</li>
+<li>
+<p><strong>RNN</strong>:</p>
+<ul>
+<li>Inspired by neuroscience, early RNNs with attractor dynamics model sequential behavior and working memory (Elman, 1990; Hopfield and Tank, 1986; Jordan, 1997).</li>
+<li>Enable detailed modeling of human working memory (Botvinick and Plaut, 2006; Durstewitz et al., 2000).</li>
+</ul>
+</li>
+<li>
+<p><strong>Long Short-Term Memory (LSTM) Networks</strong>:</p>
+<ul>
+<li>Evolved from RNNs, LSTMs gate information into a fixed activity state for maintenance and retrieval (Hochreiter and Schmidhuber, 1997).</li>
+<li>Achieve state-of-the-art performance in tasks like responding to queries about latent variable states after training on computer code (Zaremba and Sutskever, 2014).</li>
+<li>Intertwine sequence control and memory storage, unlike separate modules in classic human working memory models.</li>
+</ul>
+</li>
+<li>
+<p><strong>Differential Neural Computer (DNC)</strong>:</p>
+<ul>
+<li>Inspired by neuroscience’s separation of control and storage, DNC uses a NN controller to read/write to an external memory matrix (Graves et al., 2016).</li>
+<li>Performs complex memory and reasoning tasks (e.g., finding shortest paths in graphs, manipulating blocks in Tower of Hanoi) via end-to-end optimization (Graves et al., 2014, 2016; Weston et al., 2014).</li>
+<li>Overcomes limitations of traditional NN, previously thought to require symbol processing and variable binding (Fodor and Pylyshyn, 1988; Marcus, 1998).</li>
+</ul>
+</li>
+<li>
+<p><strong>Long-Term Memory Potential</strong>:</p>
+<ul>
+<li>LSTMs and DNC can retain information over thousands of training cycles, suitable for long-term memory tasks like understanding book contents.</li>
+</ul>
+</li>
+</ul>
+<h3 id="present-continual-learning">Present: Continual Learning</h3>
+<ul>
+<li>
+<p><strong>Continual Learning in Biological and Artificial Agents</strong>:</p>
+<ul>
+<li>Both biological and artificial agents require continual learning to master new tasks without forgetting prior ones (Thrun and Mitchell, 1995).</li>
+<li>NN suffer from catastrophic forgetting, where learning a new task overwrites parameters needed for previous tasks (French, 1999; McClelland et al., 1995).</li>
+</ul>
+</li>
+<li>
+<p><strong>Neuroscience Insights on Continual Learning</strong>:</p>
+<ul>
+<li>Advanced neuroimaging (e.g., two-photon imaging) enables visualization of dendritic spine dynamics during learning at single-synapse resolution (Nishiyama and Yasuda, 2015).</li>
+<li>Neocortical plasticity studies reveal mechanisms protecting prior task knowledge, including reduced synaptic lability via persistent dendritic spine enlargements (Cichon and Gan, 2015; Yang et al., 2009).</li>
+<li>These structural changes correlate with task retention over months; erasing them with synaptic optogenetics causes forgetting (Hayashi-Takagi et al., 2015).</li>
+<li>Theoretical models suggest memories are protected by synapses transitioning through states with varying plasticity levels (Fusi et al., 2005).</li>
+</ul>
+</li>
+<li>
+<p><strong>AI Developments Inspired by Neuroscience</strong>:</p>
+<ul>
+<li>Elastic Weight Consolidation (EWC) algorithm, inspired by neuroscience, slows learning in weights critical to prior tasks, anchoring them to previous solutions (Kirkpatrick et al., 2017).</li>
+<li>EWC enables deep RL networks to support continual learning without expanding network capacity, efficiently sharing weights across related tasks.</li>
+</ul>
+</li>
+</ul>
+<h3 id="future">Future</h3>
+<ul>
+<li>
+<p><strong>AI Performance Achievements</strong>:</p>
+<ul>
+<li>Artificial systems match human performance in object recognition tasks (Krizhevsky et al., 2012).</li>
+<li>Outperform expert humans in Atari video games (Mnih et al., 2015), Go (Silver et al., 2016), and heads-up poker (Moravčík et al., 2017).</li>
+<li>Generate near-realistic synthetic images and human speech simulations (Lake et al., 2015; van den Oord et al., 2016).</li>
+<li>Enable multilingual translation (Wu et al., 2016) and create "neural art" mimicking famous painters (Gatys et al., 2015).</li>
+</ul>
+</li>
+<li>
+<p><strong>Neuroscience Advancements</strong>:</p>
+<ul>
+<li>New tools in brain imaging and genetic bioengineering provide detailed insights into neural circuit computations (Deisseroth and Schnitzer, 2013).</li>
+<li>Promise a deeper understanding of mammalian brain function.</li>
+</ul>
+</li>
+</ul>
+<h3 id="future-intuitive-understanding-of-the-physical-world">Future: Intuitive Understanding of the Physical World</h3>
+<ul>
+<li>
+<p><strong>Core Human Cognitive Abilities</strong>:</p>
+<ul>
+<li>Human infants possess innate knowledge of physical world concepts like space, number, and objectness, enabling compositional mental models for inference and prediction (Gilmore et al., 2007; Gopnik and Schulz, 2004; Spelke and Kinzler, 2007; Battaglia et al., 2013).</li>
+</ul>
+</li>
+<li>
+<p><strong>NN Architectures for Scene Reasoning</strong>:</p>
+<ul>
+<li>Novel architectures decompose scenes into objects and their relations, mimicking human-like reasoning (Battaglia et al., 2016; Chang et al., 2016; Eslami et al., 2016).</li>
+<li>Achieve human-level performance on complex reasoning tasks (Santoro et al., 2017).</li>
+</ul>
+</li>
+<li>
+<p><strong>Deep RL for Commonsense</strong>:</p>
+<ul>
+<li>Deep RL models simulate how children develop commonsense through interactive experiments (Denil et al., 2016).</li>
+</ul>
+</li>
+<li>
+<p><strong>Deep Generative Models for Object Representation</strong>:</p>
+<ul>
+<li>Models construct rich object models from raw sensory inputs, leveraging neuroscience-inspired constraints like redundancy reduction (Barlow, 1959; Higgins et al., 2016).</li>
+<li>Learned latent representations are disentangled (e.g., shape, position) and exhibit compositional properties, enabling flexible transfer to new tasks (Eslami et al., 2016; Higgins et al., 2016; Rezende et al., 2016a).</li>
+</ul>
+</li>
+</ul>
+<h3 id="future-efficient-learning">Future: Efficient Learning</h3>
+<ul>
+<li>
+<p><strong>Human Cognitive Efficiency</strong>:</p>
+<ul>
+<li>Humans rapidly learn new concepts from few examples, using prior knowledge for flexible inductive inferences.</li>
+<li>Excel in tasks like the "characters challenge," distinguishing novel handwritten characters after one example (Lake et al., 2016).</li>
+</ul>
+</li>
+<li>
+<p><strong>AI Progress in Few-Shot Learning</strong>:</p>
+<ul>
+<li>Structured probabilistic models enable inferences and sample generation from single examples (Lake et al., 2015).</li>
+<li>Deep generative models, based on DRAW, support one-shot concept learning and sample generation (Rezende et al., 2016b).</li>
+<li>Networks that "learn to learn" leverage prior experience for one-shot learning and faster RL task acquisition (Santoro et al., 2016; Vinyals et al., 2016; Wang et al., 2016).</li>
+</ul>
+</li>
+<li>
+<p><strong>Neuroscience Roots</strong>:</p>
+<ul>
+<li>"Learning to learn" concept originates from animal learning studies (Harlow, 1949).</li>
+<li>Further explored in developmental psychology (Adolph, 2005; Kemp et al., 2010; Smith, 1995).</li>
+</ul>
+</li>
+</ul>
+<h3 id="future-transfer-learning">Future: Transfer Learning</h3>
+<ul>
+<li>
+<p><strong>AI Architectures for Generalization</strong>:</p>
+<ul>
+<li>Compositional representations enable zero-shot inferences for novel shapes outside training distributions (Higgins et al., 2016).</li>
+<li><a href="https://arxiv.org/pdf/1606.04671">Progressive networks</a> transfer knowledge from one video game to another, supporting rapid learning and far transfer (Rusu et al., 2016a).</li>
+<li><code>Progressive networks</code> reduce training time by transferring knowledge from simulated robotic environments to real-world robot arms (Rusu et al., 2016b).</li>
+</ul>
+</li>
+<li>
+<p><strong>Relation to Human Task Learning</strong>:</p>
+<ul>
+<li><code>Progressive network</code> architecture resembles computational models of sequential task learning in humans (Collins and Koechlin, 2012; Donoso et al., 2014).</li>
+<li>Deep networks solve visual analogies, indicating progress in relational reasoning (Reed et al., 2015).</li>
+</ul>
+</li>
+<li>
+<p><strong>Neural Coding for Abstract Knowledge</strong>:</p>
+<ul>
+<li>Conceptual representations may encode invariant, relational information across sensory domains (Doumas et al., 2008).</li>
+<li>Grid codes in the entorhinal cortex, which encode allocentric space with hexagonal patterns, may support abstract reasoning (Constantinescu et al., 2016; Rowland et al., 2016).</li>
+<li>Functional neuroimaging suggests grid-like codes during abstract categorization tasks, indicating periodic encoding in human knowledge organization (Constantinescu et al., 2016).</li>
+<li>Grid codes may decompose state spaces efficiently, aiding subgoal discovery and hierarchical planning (Stachenfeld et al., 2014).</li>
+</ul>
+</li>
+</ul>
+<h3 id="future-imagination-and-planning">Future: Imagination and Planning</h3>
+<ul>
+<li>
+<p><strong>Deep RL Limitations</strong>:</p>
+<ul>
+<li>Deep RL (e.g., DQN) operates reactively, mapping perceptual inputs to actions to maximize future value (model-free RL).</li>
+<li>Drawbacks: data inefficiency (requires extensive experience) and inflexibility to outcome value changes (Daw et al., 2005).</li>
+</ul>
+</li>
+<li>
+<p><strong>Human and Animal Planning</strong>:</p>
+<ul>
+<li>Humans use simulation-based planning, forecasting long-term outcomes via internal environmental models (Daw et al., 2005; Dolan and Dayan, 2013; Tolman, 1948).</li>
+<li>Animals (e.g., scrub jays, rats) exhibit planning: scrub jays consider future food recovery conditions (Raby et al., 2007); rats use cognitive maps for navigation and one-shot learning (Daw et al., 2005; Tolman, 1948).</li>
+</ul>
+</li>
+<li>
+<p><strong>AI Planning Techniques</strong>:</p>
+<ul>
+<li>Early AI planning (e.g., Dyna) inspired by mental models for generating hypothetical experiences (Sutton, 1991; Craik, 1943).</li>
+<li>Model-based RL and Monte Carlo tree search (MCTS) enable forward search, contributing to expert-level Go performance (Silver et al., 2016; Browne et al., 2012).</li>
+</ul>
+</li>
+<li>
+<p><strong>Hippocampal Role in Planning</strong>:</p>
+<ul>
+<li>Hippocampus supports simulation-based planning across species, creating spatially and temporally coherent imagined experiences (Hassabis and Maguire, 2007, 2009; Schacter et al., 2012).</li>
+<li>Rat hippocampal "preplay" activity during navigation resembles imagined trajectories (Johnson and Redish, 2007; Ólafsdóttir et al., 2015; Pfeiffer and Foster, 2013).</li>
+<li>Human non-spatial planning involves similar hippocampal processes (Doll et al., 2015; Kurth-Nelson et al., 2016).</li>
+</ul>
+</li>
+<li>
+<p><strong>Deep Generative Models</strong>:</p>
+<ul>
+<li>Generate temporally consistent sequences reflecting realistic environments’ geometric layouts (Eslami et al., 2016; Rezende et al., 2016a, 2016b; Gemici et al., 2017; Oh et al., 2015).</li>
+<li>Parallel hippocampal function in binding components for coherent imagined experiences (Hassabis and Maguire, 2007).</li>
+</ul>
+</li>
+<li>
+<p><strong>Neuroscience Insights for AI</strong>:</p>
+<ul>
+<li>Hippocampus instantiates an internal environmental model; goal-contingent valuation occurs in orbitofrontal cortex or striatum (Redish, 2016).</li>
+<li>Prefrontal cortex may initiate hippocampal model roll-forward, paralleling AI proposals of bidirectional controller-model interactions (Schmidhuber, 2014).</li>
+<li>AI architectures separate controller and environmental model for simulation-based planning in physical object interactions (Hamrick et al., 2017).</li>
+</ul>
+</li>
+<li>
+<p><strong>Human Imagination Characteristics</strong>:</p>
+<ul>
+<li>Constructive: humans recombine familiar elements into novel scenarios using compositional/disentangled representations (Eslami et al., 2016; Higgins et al., 2016; Rezende et al., 2016a).</li>
+<li>Hierarchical and "jumpy": planning spans multiple temporal scales, considering terminal goals, interim choices, and steps (Balaguer et al., 2016; Solway et al., 2014; Huys et al., 2012).</li>
+</ul>
+</li>
+</ul>
+<h3 id="future-virtual-brain-analytics">Future: Virtual Brain Analytics</h3>
+<ul>
+<li>
+<p><strong>Neuroscience Tools for AI Analysis</strong>:</p>
+<ul>
+<li>Neuroscience techniques (e.g., single-cell recording, neuroimaging, lesion studies) applied to AI systems enhance understanding of computations and representations in complex tasks.</li>
+<li>Termed "virtual brain analytics" for interpreting AI "black boxes."</li>
+</ul>
+</li>
+<li>
+<p><strong>Dimensionality Reduction</strong>:</p>
+<ul>
+<li>Common in neuroscience, dimensionality reduction visualizes brain states and has been adapted to analyze NN states (Zahavy et al., 2016).</li>
+</ul>
+</li>
+<li>
+<p><strong>Receptive Field Mapping</strong>:</p>
+<ul>
+<li>Used to determine response properties of NN units.</li>
+<li>Activity maximization generates synthetic images by maximizing specific unit activity (Nguyen et al., 2016; Simonyan et al., 2013).</li>
+</ul>
+</li>
+<li>
+<p><strong>Linearized Network Analysis</strong>:</p>
+<ul>
+<li>Neuroscience-inspired analyses of linearized networks reveal principles for optimizing learning, understanding network depth, and representational structure (McClelland and Rogers, 2003; Saxe et al., 2013).</li>
+</ul>
+</li>
+<li>
+<p><strong>Advantages in AI Research</strong>:</p>
+<ul>
+<li>AI researchers have complete system knowledge and can causally manipulate components, enabling precise analysis and hypothesis-driven experiments (Jonas and Kording, 2017; Krakauer et al., 2017).</li>
+</ul>
+</li>
+</ul>
+<h3 id="from-ai-to-neuroscience">From AI to Neuroscience</h3>
+<ul>
+<li>
+<p><strong>Machine Learning in Neuroimaging</strong>:</p>
+<ul>
+<li>Machine learning enhances analysis of fMRI and MEG data through multivariate techniques (Cichy et al., 2014; Çukur et al., 2013; Kriegeskorte and Kievit, 2013).</li>
+<li>Promises advancements in connectomic analysis (Glasser et al., 2016).</li>
+</ul>
+</li>
+<li>
+<p><strong>RL and Neuroscience</strong>:</p>
+<ul>
+<li>RL concepts, inspired by animal psychology, align with neural signals in midbrain dopaminergic neurons, resembling temporal difference (TD) prediction errors (O’Doherty et al., 2003; Schultz et al., 1997).</li>
+<li>Suggests the brain implements TD learning.</li>
+</ul>
+</li>
+<li>
+<p><strong>CNN and Visual Processing</strong>:</p>
+<ul>
+<li>CNN architectures explain neural representations in the ventral visual stream of humans and monkeys (Khaligh-Razavi and Kriegeskorte, 2014; Yamins and DiCarlo, 2016).</li>
+<li>Deep supervised networks account for increased coding of object properties (e.g., position, size) higher up the ventral visual stream (Hong et al., 2016).</li>
+</ul>
+</li>
+<li>
+<p><strong>Long Short-Term Memory (LSTM) and Working Memory</strong>:</p>
+<ul>
+<li>LSTM properties inform models of working memory, supporting gating-based maintenance of task-relevant information in the prefrontal cortex (Lloyd et al., 2012; O’Reilly and Frank, 2006).</li>
+</ul>
+</li>
+<li>
+<p><strong>NN with External Memory</strong>:</p>
+<ul>
+<li>Memory-augmented networks enable iterative querying, critical for reasoning over multiple inputs (Sukhbaatar et al., 2015).</li>
+<li>Suggests potential hippocampal mechanisms for similar cognitive processes (Kumaran and McClelland, 2012).</li>
+</ul>
+</li>
+<li>
+<p><strong>Meta-RL</strong>:</p>
+<ul>
+<li>RL optimizes recurrent network weights to create a faster-learning emergent RL algorithm (Duan et al., 2016; Wang et al., 2016).</li>
+<li>Connects to prefrontal cortex roles in RL alongside dopamine-based mechanisms (Tsutsui et al., 2016; Schultz et al., 1997).</li>
+</ul>
+</li>
+<li>
+<p><strong>Backpropagation and Biological Plausibility</strong>:</p>
+<ul>
+<li>Random backward connections enable effective backpropagation without symmetric connectivity, relaxing biological implausibility (Liao et al., 2015; Lillicrap et al., 2016).</li>
+<li>Hierarchical auto-encoder and energy-based networks approximate backpropagation using local information, aligning with spike-timing dependent plasticity (Scellier and Bengio, 2016; Whittington and Bogacz, 2017).</li>
+<li>Local learning rules in supervised networks generate high-level invariances, such as mirror-symmetric tuning (Leibo et al., 2017).</li>
+</ul>
+</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.56ea9cef.min.js"></script>
+      
+        <script src="../js/main.js"></script>
+      
+        <script src="../js/katex.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+      
+    
+  </body>
+</html>
